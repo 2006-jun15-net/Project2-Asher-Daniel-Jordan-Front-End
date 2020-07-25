@@ -55,5 +55,5 @@ steps:
       ConnectionType: 'AzureRM'
       azureSubscription: 'Azure subscription 1(6bfb27c8-f9ac-40e8-9b4f-55922e406dbf)'
       appType: 'webApp'
-      WebAppName: 'Project2-Hospital'
+      WebAppName: 'Project2-Hospital-Frontend'
       packageForLinux: '$(workingDir)/dist/$(workingDir)'
