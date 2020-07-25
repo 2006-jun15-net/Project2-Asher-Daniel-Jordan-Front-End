@@ -14,17 +14,21 @@ export class DoctorComponent implements OnInit {
   public doctors: Doctor[] | null = null;
   public error: string | null = null;
 
+  constructor(private databaseDoctor: AppService) { }
 
+  ngOnInit(): void {
+    this.getDoctors();
+  }
 
   public getDoctors() {
     this.databaseDoctor.getDoctors()
     .subscribe(doctors => this.doctors = doctors);
   }
 
-  constructor(private databaseDoctor: AppService) { }
-
-  ngOnInit(): void {
-      
+  public getDoctor(id: number) {
+    this.databaseDoctor.getDoctor(id)
+    .subscribe(doctor => this.doctor = doctor);
   }
+  
 
 }
