@@ -6,18 +6,54 @@
 trigger:
 - master
 
-jobs:
-  - job: build_linux
-    pool:
-      vmImage: 'ubuntu-latest'
+pr:
+- master
 
-    steps:
-    - task: AzureRmWebAppDeployment@4
-      displayName: Azure App Service Deployment
-      inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'Azure subscription 1(6bfb27c8-f9ac-40e8-9b4f-55922e406dbf)'
-        appType: 'webApp'
-        WebAppName: 'Project2-Hospital'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+pool:
+  vmImage: 'ubuntu-latest'
 
+variables:
+  workingDir: Project2-Frontend
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '12.x'
+    displayName: node install
+  
+  - script: npm install
+    workingDirectory: $(workingDir)
+    displayName: npm install
+  
+  - task: SonarCloudPrepare@1
+    displayName: Preparing SonarCloud
+    inputs:
+      SonarCloud: 'SonarCloud'
+      organization: '2006-jun15-net'
+      scannerMode: 'CLI'
+      configMode: 'manual'
+      projectKey: '2006-jun15-net_Project2-Asher-Daniel-Jordan-Front-End'
+      cliSources: '$(appDir)/src'
+      extraProperties: |
+        sonar.coverage.exclusions=**/*.spec.ts
+        sonar.typescript.tsconfigPath=$(appDir)/tsconfig.json
+  
+  - script: npx ng build --prod
+    workingDirectory: $(appDir)
+    displayName: ng build
+  
+  - task: SonarCloudAnalyze@1
+    displayName: Run SonarCloud Analysis
+  
+  - task: SonarCloudPublish@1
+    displayName: Publish SonarCloud Analysis
+    inputs:
+      pollingTimeoutSec: '300'
+  
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'Azure subscription 1(6bfb27c8-f9ac-40e8-9b4f-55922e406dbf)'
+      appType: 'webApp'
+      WebAppName: 'Project2-Hospital'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
