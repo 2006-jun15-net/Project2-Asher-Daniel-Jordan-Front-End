@@ -38,7 +38,7 @@ steps:
         sonar.coverage.exclusions=**/*.spec.ts
         sonar.typescript.tsconfigPath=$(appDir)/tsconfig.json
   
-  - script: npx ng build --prod
+  - script: ng build --prod
     workingDirectory: $(appDir)
     displayName: ng build
   
