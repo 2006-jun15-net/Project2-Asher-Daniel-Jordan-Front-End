@@ -32,7 +32,7 @@ steps:
       organization: '2006-jun15-net'
       scannerMode: 'CLI'
       configMode: 'manual'
-      projectKey: '2006-jun15-net_Project2-Asher-Daniel-Jordan-Front-End'
+      cliProjectKey: '2006-jun15-net_Project2-Asher-Daniel-Jordan-Front-End'
       cliSources: '$(appDir)/src'
       extraProperties: |
         sonar.coverage.exclusions=**/*.spec.ts
