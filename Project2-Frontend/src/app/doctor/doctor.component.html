@@ -1,12 +1,14 @@
 <div>(doctor)</div>
 
-<button type="button" (click)="getDoctors()">Get all Doctors</button>
+<button type="button" (click)="getDoctor(1)">Get all Doctors</button>
 
 <div *ngIf="error">
     error: {{ error }}
 </div>
 
-
+<div *ngIf="doctor">
+    {{ doctor.firstName }}
+</div>
 <div *ngIf="!doctors">
     (loading...)
 </div>

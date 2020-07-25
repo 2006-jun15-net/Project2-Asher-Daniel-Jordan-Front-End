@@ -8,11 +8,13 @@ import { AppService } from './shared/services/doctor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DoctorComponent } from './doctor/doctor.component';
 import { CommonModule } from '@angular/common';
+import { TreatmentComponent } from './treatment/treatment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DoctorComponent
+    DoctorComponent,
+    TreatmentComponent
   ],
   imports: [
     BrowserModule,

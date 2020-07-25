@@ -13,7 +13,7 @@ import { Doctor } from '../models/doctor';
 export class AppService {
 
   private serviceUrl = 'https://localhost:44362/api/Doctors';
-  //private serviceUrl = 'https://project2-hospital.azurewebsites.net/api/Doctors';
+  //private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Doctors';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,7 +23,7 @@ export class AppService {
   constructor(private http: HttpClient) {  }
 
 
-// grap data from backend:
+// grab data from backend:
 //GET all doctors
 public getDoctors(): Observable<Doctor[]> {
   return this.http.get<Doctor[]>(`${this.serviceUrl}`)
