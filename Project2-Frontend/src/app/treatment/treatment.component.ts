@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TreatmentService } from '../shared/services/treatment.service';
 import {Treatment} from '../shared/models/treatment';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-treatment',
@@ -9,6 +10,7 @@ import {Treatment} from '../shared/models/treatment';
 })
 export class TreatmentComponent implements OnInit {
   public treatments: Treatment[] | null = null;
+
   constructor(private databaseTreatment: TreatmentService) { }
 
   ngOnInit(): void {
@@ -19,6 +21,7 @@ export class TreatmentComponent implements OnInit {
     .subscribe(treatments => this.treatments = treatments);
   }
 
+  
   public getTreatments(id: number) {
     this.databaseTreatment.getTreatmentsByIllness(id)
     .subscribe(treatments => this.treatments = treatments);
