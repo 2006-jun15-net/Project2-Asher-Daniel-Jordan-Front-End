@@ -25,6 +25,27 @@ steps:
     workingDirectory: $(workingDir)
     displayName: npm install
   
+  - script: npx ng build --prod
+    workingDirectory: $(workingDir)
+    displayName: ng build
+  
+  - script: npx ng test
+      --browsers ChromeHeadless
+      --no-watch
+      --code-coverage
+    displayName: ng test
+    workingDirectory: $(workingDir)
+
+# requires some extra work iirc
+  - script: npx ng e2e
+    displayName: ng e2e
+    workingDirectory: $(workingDir)
+    enabled: false
+
+  - script: npm run lint
+    displayName: ng lint
+    workingDirectory: $(workingDir)
+
   - task: SonarCloudPrepare@1
     displayName: Preparing SonarCloud
     inputs:
@@ -37,11 +58,7 @@ steps:
       extraProperties: |
         sonar.coverage.exclusions=**/*.spec.ts
         sonar.typescript.tsconfigPath=$(workingDir)/tsconfig.json
-  
-  - script: npx ng build --prod
-    workingDirectory: $(workingDir)
-    displayName: ng build
-  
+
   - task: SonarCloudAnalyze@1
     displayName: Run SonarCloud Analysis
   
