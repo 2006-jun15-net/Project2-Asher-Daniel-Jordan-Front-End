@@ -10,7 +10,7 @@ import { Treatment } from '../models/treatment';
   providedIn: 'root'
 })
 export class TreatmentService {
-  private serviceUrl = 'https://localhost:44362';
+  private serviceUrl = 'https://localhost:44362/api/Treatments';
   //private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Treatments';
 
   httpOptions = {
@@ -30,12 +30,21 @@ export class TreatmentService {
 
   // GET all treatments by illness
   
-  public getTreatmentsByIllness(id: number): Observable<Treatment[]> {
-    return this.http.get<Treatment[]>(`${this.serviceUrl}/GetByIllness/${id}`)
+  public getTreatmentsByIllness(doctorId: number, illnessId: number): Observable<Treatment[]> {
+    return this.http.get<Treatment[]>(`${this.serviceUrl}/GetByIllness/${doctorId}/${illnessId}`)
     .pipe(
       map(data => data.map(data => new Treatment().deserialize(data),
-      catchError(() => this.handleError<Treatment>(`getIllness id =${id}`))
+      catchError(() => this.handleError<Treatment>(`Illness id =${illnessId}, Doctor id =${doctorId}`))
       ))
+    );
+  }
+
+  public getTreatmentInfo(doctorId: number, illnessId: number): Observable<Treatment> {
+    return this.http.get<Treatment>(`${this.serviceUrl}/${doctorId}/${illnessId}`)
+    .pipe(
+      map(data => new Treatment().deserialize(data),
+      catchError(() => this.handleError<Treatment>(`getTreatmentInfo`))
+      )
     );
   }
   

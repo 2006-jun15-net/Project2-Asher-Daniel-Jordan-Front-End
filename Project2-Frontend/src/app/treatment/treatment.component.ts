@@ -3,6 +3,8 @@ import { TreatmentService } from '../shared/services/treatment.service';
 import {Treatment} from '../shared/models/treatment';
 import { Observable } from 'rxjs';
 
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-treatment',
   templateUrl: './treatment.component.html',
@@ -11,9 +13,10 @@ import { Observable } from 'rxjs';
 export class TreatmentComponent implements OnInit {
   public treatments: Treatment[] | null = null;
 
-  constructor(private databaseTreatment: TreatmentService) { }
+  constructor(private databaseTreatment: TreatmentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getTreatments();
   }
 
   public getTreatmentsList() {
@@ -22,8 +25,10 @@ export class TreatmentComponent implements OnInit {
   }
 
   
-  public getTreatments(id: number) {
-    this.databaseTreatment.getTreatmentsByIllness(id)
+  public getTreatments() {
+    const doctorId = +this.route.snapshot.paramMap.get('doctorId')!;
+    const illnessId = +this.route.snapshot.paramMap.get('illnessId')!;
+    this.databaseTreatment.getTreatmentsByIllness(doctorId, illnessId)
     .subscribe(treatments => this.treatments = treatments);
   }
 }

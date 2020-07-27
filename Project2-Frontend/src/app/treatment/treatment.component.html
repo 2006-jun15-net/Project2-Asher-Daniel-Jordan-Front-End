@@ -1,11 +1,5 @@
 <div>(treatment)</div>
 
-<button type="button" (click)="getTreatments(1)">Get Illness Treatments</button>
-
-<button type="button" (click)="getTreatmentsList()">Get Treatments</button>
-<div *ngIf="!treatments">
-
-</div>
 <div *ngIf="treatments">
    <div *ngIf="treatments.length === 0">
        empty
@@ -13,9 +7,8 @@
 </div>
 <ul>
    <li *ngFor="let item of treatments">
-      <span class="badge">
-         {{item.treatmentId}}
-     </span>
-       {{ item.name }}
+      <a routerLink="/TreatmentConfirm/{{item.doctorId}}/{{item.illnessId}}">
+         {{ item.name }}
+      </a>
    </li>
 </ul>>

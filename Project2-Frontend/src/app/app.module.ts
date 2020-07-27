@@ -10,12 +10,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { DoctorComponent } from './doctor/doctor.component';
 import { CommonModule } from '@angular/common';
 import { TreatmentComponent } from './treatment/treatment.component';
+import { PatientComponent } from './patient/patient.component';
+import { TreatmentConfirmationComponent } from './treatment-confirmation/treatment-confirmation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DoctorComponent,
-    TreatmentComponent
+    TreatmentComponent,
+    PatientComponent,
+    TreatmentConfirmationComponent
   ],
   imports: [
     BrowserModule,
