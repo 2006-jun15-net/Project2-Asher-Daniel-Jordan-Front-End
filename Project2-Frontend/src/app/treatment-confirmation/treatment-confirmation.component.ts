@@ -18,6 +18,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class TreatmentConfirmationComponent implements OnInit {
   public treatment: Treatment | null = null;
   public treatmentDetails: TreatmentDetails = new TreatmentDetails();
+  public treatmentId: number | undefined;
+  public patientId: number | undefined;
 
   td: any = {
     opsRoomId: null,
@@ -35,12 +37,17 @@ export class TreatmentConfirmationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params =>
+      {
+        this.treatmentId = Number(params.get('treatmentId'));
+        this.patientId = Number(params.get('patientId'));
+      }
+    );
     this.getTreatmentInfo();
   }
 
-  public getTreatmentInfo() {
-    const treatmentId = +this.route.snapshot.paramMap.get('treatmentId')!;
-    this.databaseTreatment.getTreatmentInfo(treatmentId)
+  public getTreatmentInfo(): void {
+    this.databaseTreatment.getTreatmentInfo(Number(this.treatmentId))
     .subscribe(treatment => this.treatment = treatment);
   }
 
@@ -49,14 +56,11 @@ export class TreatmentConfirmationComponent implements OnInit {
   }
 
   confirmTreatment(): void {
-    this.treatmentDetails!.opsRoomId = null;
-    this.treatmentDetails!.treatmentId = this.treatment?.treatmentId;
-    this.treatmentDetails!.patientId = +this.route.snapshot.paramMap.get('patientId')!;
     this.databaseTreamentDetails.createTreatmentDetail(
       {
         opsRoomId: null,
-        treatmentId: +this.route.snapshot.paramMap.get('treatmentId')!,
-        patientId: +this.route.snapshot.paramMap.get('patientId')!,
+        treatmentId: this.treatmentId,
+        patientId: this.patientId,
         startTime: 'dummyData'
       } as TreatmentDetails
     )
