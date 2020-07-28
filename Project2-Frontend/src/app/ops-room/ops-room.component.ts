@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OpsRoomService } from '../shared/services/ops-room.service'
-import { OpsRoom } from '../shared/models/opsroom'
+import { OpsRoomService } from '../shared/services/ops-room.service';
+import { OpsRoom } from '../shared/models/opsroom';
 import { Observable } from 'rxjs';
 
 import { ActivatedRoute } from '@angular/router';
@@ -18,7 +18,7 @@ export class OpsRoomComponent implements OnInit {
 
   constructor(
     private databaseOpsRoom: OpsRoomService,
-    private readonly snackBar: MatSnackBar, 
+    private readonly snackBar: MatSnackBar,
     private route: ActivatedRoute
   ) { }
 

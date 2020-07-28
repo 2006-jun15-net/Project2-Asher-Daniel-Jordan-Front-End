@@ -1,4 +1,4 @@
-import { Deserializable } from "./deserializable.model";
+import { Deserializable } from './deserializable.model';
 
 export class Treatment implements Deserializable {
    public treatmentId: number | undefined;

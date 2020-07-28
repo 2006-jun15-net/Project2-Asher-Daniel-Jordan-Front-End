@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TreatmentService } from '../shared/services/treatment.service';
-import { TreatmentDetailsService } from '../shared/services/treatment-details.service'
+import { TreatmentDetailsService } from '../shared/services/treatment-details.service';
 import {Treatment} from '../shared/models/treatment';
-import { TreatmentDetails } from '../shared/models/treatmentDetails'
+import { TreatmentDetails } from '../shared/models/treatmentDetails';
 import { Observable } from 'rxjs';
 
 import { ActivatedRoute } from '@angular/router';
@@ -28,7 +28,7 @@ export class TreatmentConfirmationComponent implements OnInit {
 
   constructor(
     private databaseTreatment: TreatmentService,
-    private databaseTreamentDetails: TreatmentDetailsService, 
+    private databaseTreamentDetails: TreatmentDetailsService,
     private route: ActivatedRoute,
     private readonly snackBar: MatSnackBar,
     private location: Location

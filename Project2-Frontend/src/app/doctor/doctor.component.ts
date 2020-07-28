@@ -19,7 +19,7 @@ export class DoctorComponent implements OnInit {
     doctorId: 0,
     firstName: '',
     lastName: ''
-  }
+  };
 
 
   constructor(private databaseDoctor: DoctorService) { }
@@ -37,7 +37,7 @@ export class DoctorComponent implements OnInit {
     this.databaseDoctor.getDoctor(id)
     .subscribe(doctor => this.doctor = doctor);
   }
-  
+
   public addDoctor(): void {
     this.databaseDoctor.addDoctor({ firstName: this.doc.firstName, lastName: this.doc.lastName } as Doctor)
     .subscribe(doctor => this.doctor = doctor);

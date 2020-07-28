@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FindPatientService } from '../shared/services/findPatient.service'
-import { Patient } from '../shared/models/patient'
+import { FindPatientService } from '../shared/services/findPatient.service';
+import { Patient } from '../shared/models/patient';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -17,13 +17,13 @@ export class FindPatientComponent implements OnInit {
   doctorId: number | null = null;
   patients: Patient[] | null = null;
   patient: Patient | null = null;
-  roomId: number = 0;
-  validRoom: boolean = true;
-  errorMessage: string = "";
+  roomId = 0;
+  validRoom = true;
+  errorMessage = '';
   active = 1;
 
   constructor(
-    private databasePatient: FindPatientService, 
+    private databasePatient: FindPatientService,
     private readonly snackBar: MatSnackBar,
     private route: ActivatedRoute
   ) { }
@@ -45,18 +45,18 @@ export class FindPatientComponent implements OnInit {
     .subscribe(patient => this.patient = patient,
       error => this.invalidRoom(error)
       );
-      this.validRoom = true;
+    this.validRoom = true;
     }
     else {
       this.validRoom = false;
-      this.errorMessage = "You must enter an integer";
+      this.errorMessage = 'You must enter an integer';
     }
   }
 
   private invalidRoom(error: HttpErrorResponse): void {
     this.patient = null;
     this.validRoom = false;
-    this.errorMessage = "No patient is in that room";
+    this.errorMessage = 'No patient is in that room';
     this.handleHTTPError(error);
   }
   private handleHTTPError(error: HttpErrorResponse): void {

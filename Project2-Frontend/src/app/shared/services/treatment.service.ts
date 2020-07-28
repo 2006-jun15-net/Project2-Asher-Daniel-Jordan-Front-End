@@ -11,11 +11,11 @@ import { Treatment } from '../models/treatment';
 })
 export class TreatmentService {
   private serviceUrl = 'https://localhost:44362/api/Treatments';
-  //private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Treatments';
+  // private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Treatments';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
-  }
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -42,7 +42,7 @@ export class TreatmentService {
       map(data => new Treatment().deserialize(data))
     );
   }
-  
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

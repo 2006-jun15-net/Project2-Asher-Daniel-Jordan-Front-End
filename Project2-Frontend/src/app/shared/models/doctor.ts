@@ -1,13 +1,13 @@
-import { Deserializable } from "./deserializable.model";
+import { Deserializable } from './deserializable.model';
 
 
 
 export class Doctor implements Deserializable {
-    
+
     public doctorId: number | undefined;
     public firstName: string | undefined;
     public lastName: string | undefined;
-    
+
 
     constructor(){}
 
@@ -20,5 +20,5 @@ export class Doctor implements Deserializable {
     getFullName() {
         return this.firstName + ' ' + this.lastName;
     }
-    
+
 }

@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { OpsRoom } from '../models/opsroom'
+import { OpsRoom } from '../models/opsroom';
 import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
@@ -12,11 +12,11 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class OpsRoomService {
   private serviceUrl = 'https://localhost:44362/api/OpsRooms';
-  //private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/OpsRooms';
+  // private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/OpsRooms';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
-  }
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -34,10 +34,10 @@ export class OpsRoomService {
     );
   }
 
-  public updateRoom(opsRoom: OpsRoom) : Observable<OpsRoom> {
+  public updateRoom(opsRoom: OpsRoom): Observable<OpsRoom> {
     return this.http.put<OpsRoom>(`${this.serviceUrl}/${opsRoom.opsRoomId}`, opsRoom);
   }
-  
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

@@ -1,15 +1,15 @@
-import { Deserializable } from "./deserializable.model";
+import { Deserializable } from './deserializable.model';
 
 
 
 export class Patient implements Deserializable {
-    
+
     public patientId: number | undefined;
     public patientRoomId: number | undefined;
     public firstName: string | undefined;
     public lastName: string | undefined;
 
-    
+
 
     deserialize(input: any): this {
         Object.assign(this, input);
@@ -19,5 +19,5 @@ export class Patient implements Deserializable {
     getFullName() {
         return this.firstName + ' ' + this.lastName;
     }
-    
+
 }

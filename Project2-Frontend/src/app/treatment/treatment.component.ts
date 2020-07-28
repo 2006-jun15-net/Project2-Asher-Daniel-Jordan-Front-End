@@ -26,7 +26,7 @@ export class TreatmentComponent implements OnInit {
     .subscribe(treatments => this.treatments = treatments);
   }
 
-  
+
   public getTreatments() {
     const doctorId = +this.route.snapshot.paramMap.get('doctorId')!;
     this.databaseTreatment.getTreatmentsByDoctor(doctorId)
