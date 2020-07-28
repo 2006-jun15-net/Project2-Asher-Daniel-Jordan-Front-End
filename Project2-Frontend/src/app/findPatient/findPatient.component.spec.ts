@@ -3,7 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 
 import { FindPatientComponent as FindPatientComponent } from './findPatient.component';
 

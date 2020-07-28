@@ -8,13 +8,13 @@ import { OpsRoomComponent } from './ops-room/ops-room.component';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 import { HttpClientModule} from '@angular/common/http';
 
-const routes: Routes =[
+const routes: Routes = [
   { path: 'FindPatients/:doctorId', component: FindPatientComponent},
   { path: 'FindPatients/:doctorId/Treatments/:doctorId/:patientId', component: TreatmentComponent},
   { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent},
   { path: 'FindPatients/:doctorId/OpsRoom', component: OpsRoomComponent},
   { path: 'FindPatients/:doctorId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent}
-]
+];
 
 
 

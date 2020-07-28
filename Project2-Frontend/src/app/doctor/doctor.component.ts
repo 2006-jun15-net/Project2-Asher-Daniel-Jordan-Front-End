@@ -19,7 +19,7 @@ export class DoctorComponent implements OnInit {
     doctorId: 0,
     firstName: '',
     lastName: ''
-  }
+  };
 
   selectedDoc: any = {
     doctorId: 0,
@@ -33,16 +33,16 @@ export class DoctorComponent implements OnInit {
     this.getDoctors();
   }
 
-  public getDoctors() {
+  public getDoctors(): void {
     this.databaseDoctor.getDoctors()
     .subscribe(doctors => this.doctors = doctors);
   }
 
-  public getDoctor(id: number) {
+  public getDoctor(id: number): void {
     this.databaseDoctor.getDoctor(id)
     .subscribe(doctor => this.doctor = doctor);
   }
-  
+
   public addDoctor(): void {
     this.databaseDoctor.addDoctor({ firstName: this.doc.firstName, lastName: this.doc.lastName } as Doctor)
     .subscribe(doctor => this.doctor = doctor);

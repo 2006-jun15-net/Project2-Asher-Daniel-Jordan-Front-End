@@ -13,26 +13,26 @@ import { Doctor } from '../models/doctor';
 export class DoctorService {
 
   private serviceUrl = 'https://localhost:44362/api/Doctors';
-  //private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Doctors';
+  // private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Doctors';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  }
+  };
 
 
   constructor(private http: HttpClient) {  }
 
 
 // grab data from backend:
-//GET all doctors
+// GET all doctors
 public getDoctors(): Observable<Doctor[]> {
   return this.http.get<Doctor[]>(`${this.serviceUrl}`)
   .pipe(
-    map(data => data.map(data => new Doctor().deserialize(data)))
+    map(resultData => resultData.map(data => new Doctor().deserialize(data)))
   );
 }
 
-//GET doctor by id
+// GET doctor by id
 public getDoctor(id: number): Observable<Doctor> {
   return this.http.get<Doctor>(`${this.serviceUrl}/${id}`).pipe(
     map(data => new Doctor().deserialize(data),
@@ -41,31 +41,31 @@ public getDoctor(id: number): Observable<Doctor> {
 }
 
 // POST Doctor
-public addDoctor (doctor: Doctor): Observable<Doctor> {
-  return this.http.post<Doctor>(`${this.serviceUrl}`, doctor, 
+public addDoctor(doctor: Doctor): Observable<Doctor> {
+  return this.http.post<Doctor>(`${this.serviceUrl}`, doctor,
   this.httpOptions).pipe(
     map(data => new Doctor().deserialize(data)),
     catchError(this.handleError<Doctor>('addDoctor'))
   );
 }
 
-//DELETE Doctor
+// DELETE Doctor
 public deleteDoctor(doctor: Doctor | number): Observable<Doctor> {
   const id = typeof doctor === 'number' ? doctor : doctor.doctorId;
-  
-  return this.http.delete<Doctor>(`${this.serviceUrl}/${id}`, 
+
+  return this.http.delete<Doctor>(`${this.serviceUrl}/${id}`,
   this.httpOptions).pipe(
     catchError(this.handleError<Doctor>('deleteDoctor'))
   );
 }
 
-//PUT Doctor
+// PUT Doctor
 public updateDoctor(doctor: Doctor): Observable<any> {
   return this.http.put(`${this.serviceUrl}/${doctor.doctorId}`, doctor,
    this.httpOptions).pipe(
     map(data => new Doctor().deserialize(data)),
     catchError(this.handleError<any>('updateDoctor'))
-   )
+   );
 }
 
 
@@ -77,7 +77,7 @@ public updateDoctor(doctor: Doctor): Observable<any> {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T): any {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

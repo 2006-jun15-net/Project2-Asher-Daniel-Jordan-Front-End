@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TreatmentService } from '../shared/services/treatment.service';
-import { TreatmentDetailsService } from '../shared/services/treatment-details.service'
+import { TreatmentDetailsService } from '../shared/services/treatment-details.service';
 import {Treatment} from '../shared/models/treatment';
-import { TreatmentDetails } from '../shared/models/treatmentDetails'
+import { TreatmentDetails } from '../shared/models/treatmentDetails';
 import { Observable } from 'rxjs';
 
 import { ActivatedRoute } from '@angular/router';
@@ -18,6 +18,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class TreatmentConfirmationComponent implements OnInit {
   public treatment: Treatment | null = null;
   public treatmentDetails: TreatmentDetails = new TreatmentDetails();
+  public treatmentId: number | undefined;
+  public patientId: number | undefined;
 
   td: any = {
     opsRoomId: null,
@@ -28,19 +30,24 @@ export class TreatmentConfirmationComponent implements OnInit {
 
   constructor(
     private databaseTreatment: TreatmentService,
-    private databaseTreamentDetails: TreatmentDetailsService, 
+    private databaseTreamentDetails: TreatmentDetailsService,
     private route: ActivatedRoute,
     private readonly snackBar: MatSnackBar,
     private location: Location
   ) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params =>
+      {
+        this.treatmentId = Number(params.get('treatmentId'));
+        this.patientId = Number(params.get('patientId'));
+      }
+    );
     this.getTreatmentInfo();
   }
 
-  public getTreatmentInfo() {
-    const treatmentId = +this.route.snapshot.paramMap.get('treatmentId')!;
-    this.databaseTreatment.getTreatmentInfo(treatmentId)
+  public getTreatmentInfo(): void {
+    this.databaseTreatment.getTreatmentInfo(Number(this.treatmentId))
     .subscribe(treatment => this.treatment = treatment);
   }
 
@@ -49,14 +56,11 @@ export class TreatmentConfirmationComponent implements OnInit {
   }
 
   confirmTreatment(): void {
-    this.treatmentDetails!.opsRoomId = null;
-    this.treatmentDetails!.treatmentId = this.treatment?.treatmentId;
-    this.treatmentDetails!.patientId = +this.route.snapshot.paramMap.get('patientId')!;
     this.databaseTreamentDetails.createTreatmentDetail(
       {
         opsRoomId: null,
-        treatmentId: +this.route.snapshot.paramMap.get('treatmentId')!,
-        patientId: +this.route.snapshot.paramMap.get('patientId')!,
+        treatmentId: this.treatmentId,
+        patientId: this.patientId,
         startTime: 'dummyData'
       } as TreatmentDetails
     )
