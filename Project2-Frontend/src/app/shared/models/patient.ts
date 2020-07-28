@@ -5,9 +5,7 @@ import { Deserializable } from "./deserializable.model";
 export class Patient implements Deserializable {
     
     public patientId: number | undefined;
-    public patientRoomId: number | null;
-    public illnessId: number | undefined;
-    public doctorId: number | undefined;
+    public patientRoomId: number | undefined;
     public firstName: string | undefined;
     public lastName: string | undefined;
 

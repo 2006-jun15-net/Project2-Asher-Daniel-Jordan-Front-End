@@ -1,9 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { TreatmentComponent } from './treatment/treatment.component';
+import { FindPatientComponent } from './findPatient/findPatient.component';
+import { TreatmentConfirmationComponent } from './treatment-confirmation/treatment-confirmation.component';
+import { OpsRoomComponent } from './ops-room/ops-room.component';
+import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 
 const routes: Routes =[
-//add paths, example: { path: 'heroes', component: HeroesComponent }
+  { path: 'FindPatients/:doctorId', component: FindPatientComponent},
+  { path: 'FindPatients/:doctorId/Treatments/:doctorId/:patientId', component: TreatmentComponent},
+  { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent},
+  { path: 'FindPatients/:doctorId/OpsRoom', component: OpsRoomComponent},
+  { path: 'FindPatients/:doctorId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent}
 ]
 
 

@@ -1,0 +1,15 @@
+<div>(opsRoom)</div>
+
+<div *ngIf="opsRooms">
+   <div *ngIf="opsRooms.length === 0">
+       There are no available rooms
+   </div>
+</div>
+<ul>
+   <li *ngFor="let item of opsRooms">
+      Room {{ item.opsRoomId }} 
+      <a routerLink="BookOpsRoom/{{item.opsRoomId}}">
+         Book
+      </a>
+   </li>
+</ul>>

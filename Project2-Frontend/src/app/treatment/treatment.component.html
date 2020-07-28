@@ -1,0 +1,14 @@
+<div>(treatment)</div>
+
+<div *ngIf="treatments">
+   <div *ngIf="treatments.length === 0">
+       empty
+   </div>
+</div>
+<ul>
+   <li *ngFor="let item of treatments">
+      <a routerLink="/TreatmentConfirm/{{item.treatmentId}}/{{patientId}}">
+         {{ item.name }}
+      </a>
+   </li>
+</ul>>

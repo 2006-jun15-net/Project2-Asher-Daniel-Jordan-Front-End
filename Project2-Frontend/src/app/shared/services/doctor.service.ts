@@ -12,8 +12,8 @@ import { Doctor } from '../models/doctor';
 })
 export class AppService {
 
-  //private serviceUrl = 'https://localhost:44362/api/Doctors';
-  private serviceUrl = 'https://project2-hospital.azurewebsites.net/api/Doctors';
+  private serviceUrl = 'https://localhost:44362/api/Doctors';
+  //private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Doctors';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
