@@ -29,7 +29,6 @@ export class TreatmentDetailsService {
   }
 
   public createTreatmentDetail(treatmentDetails: TreatmentDetails): Promise<TreatmentDetails> {
-    debugger;
     return this.http.post<TreatmentDetails>(`${this.serviceUrl}`, treatmentDetails).toPromise();
   }
 

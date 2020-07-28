@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../shared/services/doctor.service';
+import { DoctorService } from '../shared/services/doctor.service';
 import {Doctor} from '../shared/models/doctor';
 
 
@@ -14,7 +14,7 @@ export class DoctorComponent implements OnInit {
   public doctors: Doctor[] | null = null;
   public error: string | null = null;
 
-  constructor(private databaseDoctor: AppService) { }
+  constructor(private databaseDoctor: DoctorService) { }
 
   ngOnInit(): void {
     this.getDoctors();

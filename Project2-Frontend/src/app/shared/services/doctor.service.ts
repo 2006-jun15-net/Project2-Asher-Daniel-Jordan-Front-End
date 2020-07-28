@@ -10,7 +10,7 @@ import { Doctor } from '../models/doctor';
 @Injectable({
   providedIn: 'root'
 })
-export class AppService {
+export class DoctorService {
 
   private serviceUrl = 'https://localhost:44362/api/Doctors';
   //private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Doctors';
