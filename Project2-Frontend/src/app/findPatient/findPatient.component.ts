@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-findPatient',
+  selector: 'app-find-patient',
   templateUrl: './findPatient.component.html',
   styleUrls: ['./findPatient.component.css']
 })
@@ -29,16 +29,20 @@ export class FindPatientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.doctorId = +this.route.snapshot.paramMap.get('doctorId')!;
+    this.route.paramMap.subscribe(params =>
+      {
+        this.doctorId = Number(params.get('doctorId'));
+      }
+    );
   }
 
-  public getDoctorPatients(doctorId: number)
+  public getDoctorPatients(doctorId: number): void
   {
     this.databasePatient.getDocterPatients(doctorId)
     .subscribe(patients => this.patients = patients);
   }
 
-  public getPatientByRoom(form: NgForm)
+  public getPatientByRoom(form: NgForm): void
   {
     if (form.valid && !isNaN(this.roomId)) {
     this.databasePatient.getPatientByRoom(this.roomId)

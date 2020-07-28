@@ -28,12 +28,12 @@ export class DoctorComponent implements OnInit {
     this.getDoctors();
   }
 
-  public getDoctors() {
+  public getDoctors(): void {
     this.databaseDoctor.getDoctors()
     .subscribe(doctors => this.doctors = doctors);
   }
 
-  public getDoctor(id: number) {
+  public getDoctor(id: number): void {
     this.databaseDoctor.getDoctor(id)
     .subscribe(doctor => this.doctor = doctor);
   }

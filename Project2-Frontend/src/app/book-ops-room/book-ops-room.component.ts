@@ -3,7 +3,7 @@ import { OpsRoomService } from '../shared/services/ops-room.service';
 import { OpsRoom } from '../shared/models/opsroom';
 import { Observable } from 'rxjs';
 
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
