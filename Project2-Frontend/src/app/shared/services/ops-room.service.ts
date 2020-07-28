@@ -23,29 +23,18 @@ export class OpsRoomService {
   public getOpsRooms(): Observable<OpsRoom[]> {
     return this.http.get<OpsRoom[]>(`${this.serviceUrl}`)
     .pipe(
-      map(data => data.map(data => new OpsRoom().deserialize(data)))
+      map(resultData => resultData.map(data => new OpsRoom().deserialize(data)))
     );
   }
 
   public getAvailableRooms(): Observable<OpsRoom[]> {
     return this.http.get<OpsRoom[]>(`${this.serviceUrl}/AvailableRooms`)
     .pipe(
-      map(data => data.map(data => new OpsRoom().deserialize(data)))
+      map(resultData => resultData.map(data => new OpsRoom().deserialize(data)))
     );
   }
 
   public updateRoom(opsRoom: OpsRoom): Observable<OpsRoom> {
     return this.http.put<OpsRoom>(`${this.serviceUrl}/${opsRoom.opsRoomId}`, opsRoom);
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 }
