@@ -28,7 +28,7 @@ export class DoctorService {
 public getDoctors(): Observable<Doctor[]> {
   return this.http.get<Doctor[]>(`${this.serviceUrl}`)
   .pipe(
-    map(data => data.map(data => new Doctor().deserialize(data)))
+    map(resultData => resultData.map(data => new Doctor().deserialize(data)))
   );
 }
 
@@ -77,7 +77,7 @@ public updateDoctor(doctor: Doctor): Observable<any> {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T): any {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

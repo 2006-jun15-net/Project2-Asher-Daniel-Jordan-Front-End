@@ -22,9 +22,7 @@ export class FindPatientService {
   public getDocterPatients(doctorId: number): Observable<Patient[]> {
     return this.http.get<Patient[]>(`${this.serviceUrl}/Doctors/${doctorId}`)
     .pipe(
-      map(data => data.map(data => new Patient().deserialize(data),
-      catchError(() => this.handleError<Patient>(`getDoctorPatients`))
-      ))
+      map(resultData => resultData.map(data => new Patient().deserialize(data)))
     );
   }
 
@@ -33,16 +31,5 @@ export class FindPatientService {
     .pipe(
       map(data => new Patient().deserialize(data))
     );
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 }
