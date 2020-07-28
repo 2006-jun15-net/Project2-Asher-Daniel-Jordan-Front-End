@@ -1,5 +1,20 @@
 <div>(doctor)</div>
 
+<div>
+    <h4>{{ doc.firstName }} {{ doc.lastName }}</h4>
+    <label>
+        Doctor's first name: 
+        <input [(ngModel)]="doc.firstName" placeholder="First Name"/>
+    </label>
+    <label>
+        Doctor's last name: 
+        <input [(ngModel)]="doc.lastName" placeholder="Last Name"/>
+    </label>
+</div>
+<button type="button" (click)="addDoctor()">Add Doctor</button>
+<br>
+<br>
+
 <button type="button" (click)="getDoctors()">Get all Doctors</button>
 
 <div *ngIf="error">
@@ -23,3 +38,4 @@
         {{ item.getFullName() }}
     </li>
 </ul>>
+
