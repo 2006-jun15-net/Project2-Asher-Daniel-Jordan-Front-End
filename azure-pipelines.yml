@@ -25,6 +25,27 @@ steps:
     workingDirectory: $(workingDir)
     displayName: npm install
   
+  - script: npx ng build --prod
+    workingDirectory: $(workingDir)
+    displayName: ng build
+  
+  - script: npx ng test
+      --browsers ChromeHeadless
+      --no-watch
+      --code-coverage
+    displayName: ng test
+    workingDirectory: $(workingDir)
+
+# requires some extra work iirc
+  - script: npx ng e2e
+    displayName: ng e2e
+    workingDirectory: $(workingDir)
+    enabled: false
+
+  - script: npm run lint
+    displayName: ng lint
+    workingDirectory: $(workingDir)
+
   - task: SonarCloudPrepare@1
     displayName: Preparing SonarCloud
     inputs:
@@ -35,13 +56,9 @@ steps:
       cliProjectKey: '2006-jun15-net_Project2-Asher-Daniel-Jordan-Front-End'
       cliSources: '$(workingDir)/src'
       extraProperties: |
-        sonar.coverage.exclusions=**/*.spec.ts
-        sonar.typescript.tsconfigPath=$(workingDir)/tsconfig.json
-  
-  - script: npx ng build --prod
-    workingDirectory: $(workingDir)
-    displayName: ng build
-  
+        sonar.coverage.exclusions=**/*.spec.ts,$(appDir)/e2e/**/*
+        sonar.typescript.lcov.reportPaths=$(appDir)/coverage/$(appDir)/lcov.info
+
   - task: SonarCloudAnalyze@1
     displayName: Run SonarCloud Analysis
   
@@ -51,9 +68,10 @@ steps:
       pollingTimeoutSec: '300'
   
   - task: AzureRmWebAppDeployment@4
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     inputs:
       ConnectionType: 'AzureRM'
       azureSubscription: 'Azure subscription 1(6bfb27c8-f9ac-40e8-9b4f-55922e406dbf)'
       appType: 'webApp'
-      WebAppName: 'Project2-Hospital'
+      WebAppName: 'Project2-Hospital-Frontend'
       packageForLinux: '$(workingDir)/dist/$(workingDir)'
