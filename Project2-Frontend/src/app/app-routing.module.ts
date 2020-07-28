@@ -6,6 +6,7 @@ import { FindPatientComponent } from './findPatient/findPatient.component';
 import { TreatmentConfirmationComponent } from './treatment-confirmation/treatment-confirmation.component';
 import { OpsRoomComponent } from './ops-room/ops-room.component';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 const routes: Routes =[
   { path: 'FindPatients/:doctorId', component: FindPatientComponent},
@@ -21,7 +22,9 @@ const routes: Routes =[
   declarations: [],
   imports: [
     RouterModule.forRoot(routes),
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    HttpClient
   ],
   exports: [RouterModule]
 })

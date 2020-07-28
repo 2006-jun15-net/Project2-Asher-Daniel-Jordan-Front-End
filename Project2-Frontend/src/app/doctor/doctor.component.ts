@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../shared/services/doctor.service';
-import { Doctor } from '../shared/models/doctor';
+import { DoctorService } from '../shared/services/doctor.service';
+import {Doctor} from '../shared/models/doctor';
+
 
 
 @Component({
@@ -26,7 +27,7 @@ export class DoctorComponent implements OnInit {
     lastName: ''
   }
 
-  constructor(private databaseDoctor: AppService) { }
+  constructor(private databaseDoctor: DoctorService) { }
 
   ngOnInit(): void {
     this.getDoctors();

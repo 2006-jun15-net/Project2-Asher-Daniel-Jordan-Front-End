@@ -19,6 +19,13 @@ export class TreatmentConfirmationComponent implements OnInit {
   public treatment: Treatment | null = null;
   public treatmentDetails: TreatmentDetails = new TreatmentDetails();
 
+  td: any = {
+    opsRoomId: null,
+    treatmentId: 0,
+    patientId: 0,
+    startTime: ''
+  };
+
   constructor(
     private databaseTreatment: TreatmentService,
     private databaseTreamentDetails: TreatmentDetailsService, 
@@ -45,7 +52,14 @@ export class TreatmentConfirmationComponent implements OnInit {
     this.treatmentDetails!.opsRoomId = null;
     this.treatmentDetails!.treatmentId = this.treatment?.treatmentId;
     this.treatmentDetails!.patientId = +this.route.snapshot.paramMap.get('patientId')!;
-    this.databaseTreamentDetails.createTreatmentDetail(this.treatmentDetails!)
+    this.databaseTreamentDetails.createTreatmentDetail(
+      {
+        opsRoomId: null,
+        treatmentId: +this.route.snapshot.paramMap.get('treatmentId')!,
+        patientId: +this.route.snapshot.paramMap.get('patientId')!,
+        startTime: 'dummyData'
+      } as TreatmentDetails
+    )
     .catch(error => this.handleHTTPError(error));
   }
 

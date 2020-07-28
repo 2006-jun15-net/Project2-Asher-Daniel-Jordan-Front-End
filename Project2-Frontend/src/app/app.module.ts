@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AppService } from './shared/services/doctor.service';
+import { DoctorService } from './shared/services/doctor.service';
 import { TreatmentService } from './shared/services/treatment.service'
 import { AppRoutingModule } from './app-routing.module';
 import { DoctorComponent } from './doctor/doctor.component';
@@ -40,7 +40,7 @@ import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
     MatSnackBarModule,
     NgbNavModule,
   ],
-  providers: [AppService, TreatmentService],
+  providers: [DoctorService, TreatmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
