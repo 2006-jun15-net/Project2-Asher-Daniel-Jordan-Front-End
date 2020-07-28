@@ -23,7 +23,7 @@ export class AppService {
   constructor(private http: HttpClient) {  }
 
 
-// grap data from backend:
+// grab data from backend:
 //GET all doctors
 public getDoctors(): Observable<Doctor[]> {
   return this.http.get<Doctor[]>(`${this.serviceUrl}`)

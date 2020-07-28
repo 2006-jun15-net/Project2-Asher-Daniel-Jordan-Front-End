@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../shared/services/doctor.service';
-import {Doctor} from '../shared/models/doctor';
+import { Doctor } from '../shared/models/doctor';
 
 
 @Component({
@@ -13,6 +13,13 @@ export class DoctorComponent implements OnInit {
   public doctor: Doctor | null = null;
   public doctors: Doctor[] | null = null;
   public error: string | null = null;
+
+  doc: any = {
+    doctorId: 0,
+    firstName: '',
+    lastName: ''
+  }
+
 
   constructor(private databaseDoctor: AppService) { }
 
@@ -30,5 +37,9 @@ export class DoctorComponent implements OnInit {
     .subscribe(doctor => this.doctor = doctor);
   }
   
+  public addDoctor(): void {
+    this.databaseDoctor.addDoctor({ firstName: this.doc.firstName, lastName: this.doc.lastName } as Doctor)
+    .subscribe(doctor => this.doctor = doctor);
+  }
 
 }
