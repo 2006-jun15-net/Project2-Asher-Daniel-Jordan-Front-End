@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { TreatmentComponent } from './treatment/treatment.component';
 import { PatientComponent } from './patient/patient.component';
 import { TreatmentConfirmationComponent } from './treatment-confirmation/treatment-confirmation.component';
+import { OpsRoomComponent } from './ops-room/ops-room.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TreatmentConfirmationComponent } from './treatment-confirmation/treatme
     DoctorComponent,
     TreatmentComponent,
     PatientComponent,
-    TreatmentConfirmationComponent
+    TreatmentConfirmationComponent,
+    OpsRoomComponent
   ],
   imports: [
     BrowserModule,
