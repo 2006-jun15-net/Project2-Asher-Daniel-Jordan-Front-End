@@ -32,10 +32,14 @@
 </div>
 <ul>
     <li *ngFor="let item of doctors">
+        <a routerLink="/details/{{item.doctorId}}">
         <span class="badge">
             {{item.doctorId}}
         </span>
         {{ item.getFullName() }}
+        </a>
+        <button title="Delete Doctor"
+            (click)="deleteDoctor(item)">x</button>
     </li>
 </ul>>
 
