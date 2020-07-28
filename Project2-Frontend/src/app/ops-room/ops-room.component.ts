@@ -26,7 +26,7 @@ export class OpsRoomComponent implements OnInit {
     this.getAvailableRooms();
   }
 
-  public getAvailableRooms() {
+  public getAvailableRooms(): any {
     return this.databaseOpsRoom.getAvailableRooms()
     .subscribe(rooms => this.opsRooms = rooms,
       error => this.handleHTTPError(error));

@@ -16,7 +16,7 @@ export class Patient implements Deserializable {
         return this;
     }
 
-    getFullName() {
+    getFullName(): string {
         return this.firstName + ' ' + this.lastName;
     }
 
