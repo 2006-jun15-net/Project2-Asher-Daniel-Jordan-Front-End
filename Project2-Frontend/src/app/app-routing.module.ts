@@ -4,11 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { TreatmentComponent } from './treatment/treatment.component';
 import { FindPatientComponent } from './findPatient/findPatient.component';
 import { TreatmentConfirmationComponent } from './treatment-confirmation/treatment-confirmation.component';
+import { OpsRoomComponent } from './ops-room/ops-room.component';
+import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 
 const routes: Routes =[
-  { path: 'FindPatients', component: FindPatientComponent},
-  { path: 'Treatments/:doctorId/:illnessId', component: TreatmentComponent},
-  { path: 'TreatmentConfirm/:doctorId/:illnessId', component: TreatmentConfirmationComponent}
+  { path: 'FindPatients/:doctorId', component: FindPatientComponent},
+  { path: 'FindPatients/:doctorId/Treatments/:doctorId/:patientId', component: TreatmentComponent},
+  { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent},
+  { path: 'FindPatients/:doctorId/OpsRoom', component: OpsRoomComponent},
+  { path: 'FindPatients/:doctorId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent}
 ]
 
 

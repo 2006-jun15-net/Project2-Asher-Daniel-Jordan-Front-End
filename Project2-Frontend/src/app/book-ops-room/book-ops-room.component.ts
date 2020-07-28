@@ -4,32 +4,39 @@ import { OpsRoom } from '../shared/models/opsroom'
 import { Observable } from 'rxjs';
 
 import { ActivatedRoute } from '@angular/router';
-import { catchError } from 'rxjs/operators';
+import { Location } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-ops-room',
-  templateUrl: './ops-room.component.html',
-  styleUrls: ['./ops-room.component.css']
+  selector: 'app-book-ops-room',
+  templateUrl: './book-ops-room.component.html',
+  styleUrls: ['./book-ops-room.component.css']
 })
-export class OpsRoomComponent implements OnInit {
-  opsRooms: OpsRoom[] | null = null;
+export class BookOpsRoomComponent implements OnInit {
+  opsRoom: OpsRoom = new OpsRoom();
 
   constructor(
     private databaseOpsRoom: OpsRoomService,
-    private readonly snackBar: MatSnackBar, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private readonly snackBar: MatSnackBar,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
-    this.getAvailableRooms();
   }
 
-  public getAvailableRooms() {
-    return this.databaseOpsRoom.getAvailableRooms()
-    .subscribe(rooms => this.opsRooms = rooms,
-      error => this.handleHTTPError(error));
+  goBack(): void {
+    this.location.back();
+  }
+
+  confirm(): void {
+    this.opsRoom!.opsRoomId = +this.route.snapshot.paramMap.get('opsRoomId')!;
+    this.opsRoom!.available = false;
+    this.databaseOpsRoom.updateRoom(this.opsRoom)
+    .subscribe( data => console.log("PUT was successful", data),
+    error => this.handleHTTPError(error)
+    );
   }
 
   private handleHTTPError(error: HttpErrorResponse): void {

@@ -23,19 +23,19 @@ export class OpsRoomService {
   public getOpsRooms(): Observable<OpsRoom[]> {
     return this.http.get<OpsRoom[]>(`${this.serviceUrl}`)
     .pipe(
-      map(data => data.map(data => new OpsRoom().deserialize(data)),
-      catchError(() => this.handleError<OpsRoom>(`get`))
-      )
+      map(data => data.map(data => new OpsRoom().deserialize(data)))
     );
   }
 
   public getAvailableRooms(): Observable<OpsRoom[]> {
     return this.http.get<OpsRoom[]>(`${this.serviceUrl}/AvailableRooms`)
     .pipe(
-      map(data => data.map(data => new OpsRoom().deserialize(data)),
-      catchError(() => this.handleError<OpsRoom>(`getAvailable`))
-      )
+      map(data => data.map(data => new OpsRoom().deserialize(data)))
     );
+  }
+
+  public updateRoom(opsRoom: OpsRoom) : Observable<OpsRoom> {
+    return this.http.put<OpsRoom>(`${this.serviceUrl}/${opsRoom.opsRoomId}`, opsRoom);
   }
   
   private handleError<T>(operation = 'operation', result?: T) {

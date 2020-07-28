@@ -33,5 +33,13 @@
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
 <div *ngIf="patient">
-   {{patient.getFullName()}} located in room: {{roomId}}
+   {{patient.getFullName()}}, Room Number: {{roomId}}   
+</div>
+<div *ngIf="patient">
+   <a routerLink="Treatments/{{doctorId}}/{{patient.patientId}}">
+      Select Treatment
+   </a> | 
+   <a routerLink="OpsRoom">
+      Book OR Room
+   </a>
 </div>

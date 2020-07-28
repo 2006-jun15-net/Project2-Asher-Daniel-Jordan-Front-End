@@ -7,7 +7,7 @@
 </div>
 <ul>
    <li *ngFor="let item of treatments">
-      <a routerLink="/TreatmentConfirm/{{item.doctorId}}/{{item.illnessId}}">
+      <a routerLink="/TreatmentConfirm/{{item.treatmentId}}/{{patientId}}">
          {{ item.name }}
       </a>
    </li>

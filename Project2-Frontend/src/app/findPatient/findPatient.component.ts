@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 
 @Component({
@@ -13,6 +14,7 @@ import { catchError } from 'rxjs/operators';
   styleUrls: ['./findPatient.component.css']
 })
 export class FindPatientComponent implements OnInit {
+  doctorId: number | null = null;
   patients: Patient[] | null = null;
   patient: Patient | null = null;
   roomId: number = 0;
@@ -20,9 +22,14 @@ export class FindPatientComponent implements OnInit {
   errorMessage: string = "";
   active = 1;
 
-  constructor(private databasePatient: FindPatientService, private readonly snackBar: MatSnackBar) { }
+  constructor(
+    private databasePatient: FindPatientService, 
+    private readonly snackBar: MatSnackBar,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.doctorId = +this.route.snapshot.paramMap.get('doctorId')!;
   }
 
   public getDoctorPatients(doctorId: number)
@@ -33,7 +40,6 @@ export class FindPatientComponent implements OnInit {
 
   public getPatientByRoom(form: NgForm)
   {
-    debugger;
     if (form.valid && !isNaN(this.roomId)) {
     this.databasePatient.getPatientByRoom(this.roomId)
     .subscribe(patient => this.patient = patient,

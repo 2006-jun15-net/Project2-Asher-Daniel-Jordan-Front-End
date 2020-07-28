@@ -28,23 +28,18 @@ export class TreatmentService {
     );
   }
 
-  // GET all treatments by illness
-  
-  public getTreatmentsByIllness(doctorId: number, illnessId: number): Observable<Treatment[]> {
-    return this.http.get<Treatment[]>(`${this.serviceUrl}/GetByIllness/${doctorId}/${illnessId}`)
+  // GET all treatments that a specific doctor can perform
+  public getTreatmentsByDoctor(doctorId: number): Observable<Treatment[]> {
+    return this.http.get<Treatment[]>(`${this.serviceUrl}/GetByDoctor/${doctorId}`)
     .pipe(
-      map(data => data.map(data => new Treatment().deserialize(data),
-      catchError(() => this.handleError<Treatment>(`Illness id =${illnessId}, Doctor id =${doctorId}`))
-      ))
+      map(data => data.map(data => new Treatment().deserialize(data)))
     );
   }
 
   public getTreatmentInfo(id: number): Observable<Treatment> {
     return this.http.get<Treatment>(`${this.serviceUrl}/${id}`)
     .pipe(
-      map(data => new Treatment().deserialize(data),
-      catchError(() => this.handleError<Treatment>(`getTreatmentInfo`))
-      )
+      map(data => new Treatment().deserialize(data))
     );
   }
   

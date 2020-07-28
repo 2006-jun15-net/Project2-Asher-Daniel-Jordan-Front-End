@@ -1,8 +1,8 @@
 <div *ngIf='treatment'>
    {{treatment.name}}
    <br>
-   {{treatment.timeToTreat}} Days
+   Takes {{treatment.timeToTreat}} Days to complete Treatment
 </div>
 
 <button type="button" (click)="goBack()">Go Back</button>
-<button type="button">Confirm</button>
+<button type="button" (click)="confirmTreatment()">Confirm</button>
