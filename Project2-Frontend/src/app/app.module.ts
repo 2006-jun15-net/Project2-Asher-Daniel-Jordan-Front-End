@@ -40,7 +40,7 @@ import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
     MatSnackBarModule,
     NgbNavModule,
   ],
-  providers: [AppService, TreatmentService],
+  providers: [DoctorService, TreatmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
