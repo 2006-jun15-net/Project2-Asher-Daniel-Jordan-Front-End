@@ -1,0 +1,37 @@
+<div>(patient)</div>
+
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+   <li [ngbNavItem]="1">
+      <a ngbNavLink>Find By Room</a>
+      <ng-template ngbNavContent>
+         <form #findPatientRoomForm="ngForm" (ngSubmit)="getPatientByRoom(findPatientRoomForm)">
+            <input type="text" placeholder="1" 
+               required [(ngModel)]="roomId" name="roomId"
+               #selectedRoom="ngModel">
+            <button type="submit" [disabled]="!findPatientRoomForm.form.valid">
+               Search
+             </button>
+         </form>
+         <div [hidden]="validRoom" class="alert alert-danger">
+            {{errorMessage}}
+         </div>
+      </ng-template>
+   </li>
+   <li [ngbNavItem]="2">
+      <a ngbNavLink>Find By Doctor</a>
+      <ng-template ngbNavContent>
+         Content2
+      </ng-template>
+   </li>
+   <li [ngbNavItem]="3">
+      <a ngbNavLink>Find By Nurse</a>
+      <ng-template ngbNavContent>
+         Content3
+      </ng-template>
+   </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+<div *ngIf="patient">
+   {{patient.getFullName()}} located in room: {{roomId}}
+</div>

@@ -10,16 +10,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { DoctorComponent } from './doctor/doctor.component';
 import { CommonModule } from '@angular/common';
 import { TreatmentComponent } from './treatment/treatment.component';
-import { PatientComponent } from './patient/patient.component';
+import { FindPatientComponent } from './findPatient/findPatient.component';
 import { TreatmentConfirmationComponent } from './treatment-confirmation/treatment-confirmation.component';
 import { OpsRoomComponent } from './ops-room/ops-room.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     DoctorComponent,
     TreatmentComponent,
-    PatientComponent,
+    FindPatientComponent,
     TreatmentConfirmationComponent,
     OpsRoomComponent
   ],
@@ -29,6 +34,9 @@ import { OpsRoomComponent } from './ops-room/ops-room.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+    NgbNavModule,
   ],
   providers: [AppService, TreatmentService],
   bootstrap: [AppComponent]

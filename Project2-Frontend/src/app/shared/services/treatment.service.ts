@@ -39,8 +39,8 @@ export class TreatmentService {
     );
   }
 
-  public getTreatmentInfo(doctorId: number, illnessId: number): Observable<Treatment> {
-    return this.http.get<Treatment>(`${this.serviceUrl}/${doctorId}/${illnessId}`)
+  public getTreatmentInfo(id: number): Observable<Treatment> {
+    return this.http.get<Treatment>(`${this.serviceUrl}/${id}`)
     .pipe(
       map(data => new Treatment().deserialize(data),
       catchError(() => this.handleError<Treatment>(`getTreatmentInfo`))

@@ -27,8 +27,8 @@ export class TreatmentConfirmationComponent implements OnInit {
   public getTreatmentInfo() {
     const doctorId = +this.route.snapshot.paramMap.get('doctorId')!;
     const illnessId = +this.route.snapshot.paramMap.get('illnessId')!;
-    this.databaseTreatment.getTreatmentInfo(doctorId, illnessId)
-    .subscribe(treatment => this.treatment = treatment);
+    //this.databaseTreatment.getTreatmentInfo(doctorId, illnessId)
+    //.subscribe(treatment => this.treatment = treatment);
   }
 
   goBack(): void {

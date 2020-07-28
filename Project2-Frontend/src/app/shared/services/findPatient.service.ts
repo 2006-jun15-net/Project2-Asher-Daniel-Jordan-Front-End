@@ -9,7 +9,7 @@ import { Patient } from '../models/patient'
 @Injectable({
   providedIn: 'root'
 })
-export class PatientService {
+export class FindPatientService {
   private serviceUrl = 'https://localhost:44362/api/Patients';
   //private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Patients';
 
@@ -25,6 +25,13 @@ export class PatientService {
       map(data => data.map(data => new Patient().deserialize(data),
       catchError(() => this.handleError<Patient>(`getDoctorPatients`))
       ))
+    );
+  }
+
+  public getPatientByRoom(roomId: number): Observable<Patient> {
+    return this.http.get<Patient>(`${this.serviceUrl}/PatientRoom/${roomId}`)
+    .pipe(
+      map(data => new Patient().deserialize(data))
     );
   }
 
