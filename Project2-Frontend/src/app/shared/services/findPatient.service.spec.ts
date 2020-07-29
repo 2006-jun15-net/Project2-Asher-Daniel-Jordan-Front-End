@@ -12,9 +12,8 @@ describe('FindPatientService', () => {
       imports: [HttpClientTestingModule],
       providers: [FindPatientService]
     });
-    // service = TestBed.inject(FindPatientService);
-    service = TestBed.get(FindPatientService);
-    httpMock = TestBed.get(HttpTestingController);
+    service = TestBed.inject(FindPatientService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {

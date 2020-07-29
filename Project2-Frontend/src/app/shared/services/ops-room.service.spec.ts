@@ -13,8 +13,8 @@ describe('OpsRoomService', () => {
       imports: [HttpClientTestingModule],
       providers: [OpsRoomService]
     });
-    service = TestBed.get(OpsRoomService);
-    httpMock = TestBed.get(HttpTestingController);
+    service = TestBed.inject(OpsRoomService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {

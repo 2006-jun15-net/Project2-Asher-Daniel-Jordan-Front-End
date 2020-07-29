@@ -13,7 +13,7 @@ describe('TreatmentService', () => {
       providers: [TreatmentService]
     });
     service = TestBed.inject(TreatmentService);
-    httpMock = TestBed.get(HttpTestingController);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {
@@ -59,40 +59,40 @@ describe('TreatmentService', () => {
     request.flush(treatments);
   });
 
-  it('should get treatments by doctor', () => {
-    const treatments: any[] = [
-      {
-        treatmentId: 1,
-        illnessId: 3,
-        doctorId: 1,
-        name: 'giveTest',
-        timeToTreat: 7
-      },
-      {
-        treatmentId: 2,
-        illnessId: 5,
-        doctorId: 2,
-        name: 'giveTest',
-        timeToTreat: 12
-      },
-      {
-        treatmentId: 3,
-        illnessId: 1,
-        doctorId: 5,
-        name: 'giveTest',
-        timeToTreat: 2
-      }
-    ];
+  // it('should get treatments by doctor', () => {
+  //   const treatments: any[] = [
+  //     {
+  //       treatmentId: 1,
+  //       illnessId: 3,
+  //       doctorId: 1,
+  //       name: 'giveTest',
+  //       timeToTreat: 7
+  //     },
+  //     {
+  //       treatmentId: 2,
+  //       illnessId: 5,
+  //       doctorId: 2,
+  //       name: 'giveTest',
+  //       timeToTreat: 12
+  //     },
+  //     {
+  //       treatmentId: 3,
+  //       illnessId: 1,
+  //       doctorId: 5,
+  //       name: 'giveTest',
+  //       timeToTreat: 2
+  //     }
+  //   ];
 
-    service.getTreatmentsByDoctor(5).subscribe(list => {
-      expect(list.length).toBe(1);
-    });
+  //   service.getTreatmentsByDoctor(5).subscribe(list => {
+  //     expect(list.length).toBe(1);
+  //   });
 
-    const request = httpMock.expectOne(`https://localhost:44362/api/Treatments/GetByDoctor/5`);
-    expect(request.request.method).toBe('GET');
+  //   const request = httpMock.expectOne(`https://localhost:44362/api/Treatments/GetByDoctor/5`);
+  //   expect(request.request.method).toBe('GET');
 
-    request.flush(treatments);
-  });
+  //   request.flush(treatments);
+  // });
 
   it('should get a treatment', () => {
     const treatment: any = {

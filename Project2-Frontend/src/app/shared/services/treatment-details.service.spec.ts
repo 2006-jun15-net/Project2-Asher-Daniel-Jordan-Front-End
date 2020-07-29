@@ -14,7 +14,7 @@ describe('TreatmentDetailsService', () => {
       providers: [TreatmentDetailsService]
     });
     service = TestBed.inject(TreatmentDetailsService);
-    httpMock = TestBed.get(HttpTestingController);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {

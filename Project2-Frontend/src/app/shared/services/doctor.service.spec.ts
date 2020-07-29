@@ -13,8 +13,8 @@ describe('DoctorService', () => {
       imports: [HttpClientTestingModule],
       providers: [DoctorService]
     });
-    service = TestBed.get(DoctorService);
-    httpMock = TestBed.get(HttpTestingController);
+    service = TestBed.inject(DoctorService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {

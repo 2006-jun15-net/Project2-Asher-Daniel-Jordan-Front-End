@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { AssignPatientComponent } from './assign-patient.component';
 
@@ -8,7 +9,8 @@ describe('AssignPatientComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AssignPatientComponent ]
+      declarations: [ AssignPatientComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   }));
