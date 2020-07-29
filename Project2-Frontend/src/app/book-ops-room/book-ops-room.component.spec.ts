@@ -6,18 +6,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookOpsRoomComponent } from './book-ops-room.component';
 import { of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { OpsRoomService } from '../shared/services/ops-room.service';
 
 
 describe('BookOpsRoomComponent', () => {
   let component: BookOpsRoomComponent;
   let fixture: ComponentFixture<BookOpsRoomComponent>;
-  // const activatedRouteMock = {
-  //   queryParams: of({
-  //     opsRoomId: '5',
-  //     patientId: '1',
-  //     doctorId: '3'
-  //   }),
-  // };
 
   beforeEach(async(() => {
     const matSnackBar = jasmine.createSpyObj('MatSnackBar', ['open']);
@@ -25,8 +19,7 @@ describe('BookOpsRoomComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ BookOpsRoomComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule],
-      providers: [{ provide: MatSnackBar, useValue: matSnackBar },
-        // { provide: ActivatedRoute, useValue: activatedRouteMock }
+      providers: [{ provide: MatSnackBar, useValue: matSnackBar }
       ]
     })
     .compileComponents();
@@ -38,12 +31,11 @@ describe('BookOpsRoomComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should be defined', () => {
-  //   expect(component).toBeDefined();
-  // });
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should call service function updateRoom', () => {
+    //const mySpy = spyOn(databaseOpsRoom, 'updateRoom');
+  })
 });
