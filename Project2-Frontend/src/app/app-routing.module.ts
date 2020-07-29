@@ -7,8 +7,14 @@ import { TreatmentConfirmationComponent } from './treatment-confirmation/treatme
 import { OpsRoomComponent } from './ops-room/ops-room.component';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 import { HttpClientModule} from '@angular/common/http';
+import { DoctorComponent } from './doctor/doctor.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
-const routes: Routes = [
+
+const routes: Routes =[
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'doctor', component: DoctorComponent},
   { path: 'FindPatients/:doctorId', component: FindPatientComponent},
   { path: 'FindPatients/:doctorId/Treatments/:patientId', component: TreatmentComponent},
   { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent},
