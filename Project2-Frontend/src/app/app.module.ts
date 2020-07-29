@@ -16,7 +16,7 @@ import { OpsRoomComponent } from './ops-room/ops-room.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbNavModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -39,6 +39,7 @@ import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
     BrowserAnimationsModule,
     MatSnackBarModule,
     NgbNavModule,
+    NgbModule,
   ],
   providers: [AppService, TreatmentService],
   bootstrap: [AppComponent]
