@@ -36,10 +36,10 @@
    {{patient.getFullName()}}, Room Number: {{roomId}}   
 </div>
 <div *ngIf="patient">
-   <a routerLink="Treatments/{{doctorId}}/{{patient.patientId}}">
+   <a routerLink="Treatments/{{patient.patientId}}">
       Select Treatment
    </a> | 
-   <a routerLink="OpsRoom">
+   <a routerLink="{{patient.patientId}}/OpsRoom">
       Book OR Room
    </a>
 </div>

@@ -1,6 +1,12 @@
 import { Deserializable } from './deserializable.model';
 
 
+// export default interface Patient {
+//     patientId: number;
+//     patientRoomId?: number;
+//     firstName: string;
+//     lastName: string;
+// }
 
 export class Patient implements Deserializable {
 
