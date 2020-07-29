@@ -36,6 +36,6 @@ describe('BookOpsRoomComponent', () => {
   });
 
   it('should call service function updateRoom', () => {
-    //const mySpy = spyOn(databaseOpsRoom, 'updateRoom');
-  })
+    // const mySpy = spyOn(databaseOpsRoom, 'updateRoom');
+  });
 });
