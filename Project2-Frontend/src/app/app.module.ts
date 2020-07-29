@@ -32,7 +32,7 @@ import { AssignPatientComponent } from './assign-patient/assign-patient.componen
     TreatmentConfirmationComponent,
     OpsRoomComponent,
     BookOpsRoomComponent,
-    DashboardComponent
+    DashboardComponent,
     AssignPatientComponent
   ],
   imports: [
