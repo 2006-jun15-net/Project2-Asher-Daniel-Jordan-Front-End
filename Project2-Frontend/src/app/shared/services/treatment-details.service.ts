@@ -33,6 +33,13 @@ export class TreatmentDetailsService {
     );
   }
 
+  public getDoctorTreatmentDetails(doctorId: number): Observable<TreatmentDetails[]> {
+    return this.http.get<TreatmentDetails[]>(`${this.serviceUrl}/Doctor/${doctorId}`)
+    .pipe(
+      map(data => data.map(data => new TreatmentDetails().deserialize(data)))
+    );
+  }
+
   public getPatientTreatment(patientId: number): Observable<TreatmentDetails> {
     return this.http.get<TreatmentDetails>(`${this.serviceUrl}/GetPatientsTreatment/${patientId}`)
     .pipe(

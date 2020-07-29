@@ -16,3 +16,31 @@
     <button (click)="goBack()">go back</button>
     <button (click)="editDoctor()">save</button>
 </div>
+<br>
+<br>
+
+<h2>List of Doctor's treatments</h2>
+<div *ngIf="treatments">
+    <div *ngIf="treatments.length === 0">
+        empty
+    </div>
+ </div>
+ <ul>
+    <li *ngFor="let item of treatments">
+        id:{{ item.treatmentId }} {{ item.name }}
+    </li>
+ </ul>
+ <br>
+ <br>
+
+ <h2>List of Doctor's treatment History</h2>
+<div *ngIf="treatmentDetails">
+    <div *ngIf="treatmentDetails.length === 0">
+        empty
+    </div>
+ </div>
+ <ul>
+    <li *ngFor="let item of treatmentDetails">
+        {{ item.treatmentDetailsId }} {{ item.treatmentId }} {{ item.patientId }} {{ item.opsRoomId }} {{ item.startTime}}
+    </li>
+ </ul>
