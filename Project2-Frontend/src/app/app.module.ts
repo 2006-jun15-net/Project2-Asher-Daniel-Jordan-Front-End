@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {NgbNavModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
+import { AssignPatientComponent } from './assign-patient/assign-patient.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
     FindPatientComponent,
     TreatmentConfirmationComponent,
     OpsRoomComponent,
-    BookOpsRoomComponent
+    BookOpsRoomComponent,
+    AssignPatientComponent
   ],
   imports: [
     BrowserModule,
