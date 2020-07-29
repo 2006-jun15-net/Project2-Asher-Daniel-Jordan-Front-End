@@ -4,15 +4,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import {Patient} from '../models/patient';
+import { Patient } from '../models/patient';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FindPatientService {
-  private serviceUrl = 'https://localhost:44362/api/Patients';
-  // private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Patients';
-
+  private readonly serviceUrl = environment.Url +'/api/Patients';
+  
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
   };

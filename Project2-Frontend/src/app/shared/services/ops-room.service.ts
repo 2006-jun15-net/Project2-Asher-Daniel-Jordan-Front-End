@@ -6,13 +6,14 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { OpsRoom } from '../models/opsroom';
 import { ThrowStmt } from '@angular/compiler';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OpsRoomService {
-  private serviceUrl = 'https://localhost:44362/api/OpsRooms';
-  // private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/OpsRooms';
+  private readonly serviceUrl = environment.Url +'/api/OpsRooms';
+  
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
