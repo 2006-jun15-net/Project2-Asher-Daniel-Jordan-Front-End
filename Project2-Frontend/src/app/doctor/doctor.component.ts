@@ -23,9 +23,10 @@ export class DoctorComponent implements OnInit {
 
   selectedDoc: any = {
     doctorId: 0,
-    firstName: '',
-    lastName: ''
+  //  firstName: '',
+  //  lastName: ''
   };
+
 
   constructor(private databaseDoctor: DoctorService) { }
 
@@ -48,15 +49,15 @@ export class DoctorComponent implements OnInit {
     .subscribe(doctor => this.doctor = doctor);
   }
 
-  public editDoctor(): void {
-    this.databaseDoctor.updateDoctor(
-      { doctorId: this.selectedDoc.doctorId, firstName: this.selectedDoc.firstName,
-        lastName: this.selectedDoc.lastName } as Doctor)
-    .subscribe(doctor => this.doctor = doctor);
-  }
 
-  public deleteDoctor(doctor: Doctor): void {
-    this.databaseDoctor.deleteDoctor({ doctorId: doctor.doctorId, firstName: doctor.firstName, lastName: doctor.lastName } as Doctor)
+ // public editDoctor(): void {
+  //  this.databaseDoctor.updateDoctor({ doctorId: this.selectedDoc.doctorId, firstName: this.selectedDoc.firstName, lastName: this.selectedDoc.lastName } as Doctor)
+ //   .subscribe(doctor => this.doctor = doctor);
+ // }
+
+
+  public deleteDoctor(): void {
+    this.databaseDoctor.deleteDoctor({ doctorId: this.selectedDoc} as Doctor)
     .subscribe();
   }
 }

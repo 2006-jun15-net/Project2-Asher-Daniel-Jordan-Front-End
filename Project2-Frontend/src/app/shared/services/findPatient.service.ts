@@ -17,6 +17,7 @@ export class FindPatientService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
   };
 
+
   constructor(private http: HttpClient) { }
 
   public getDocterPatients(doctorId: number): Observable<Patient[]> {
