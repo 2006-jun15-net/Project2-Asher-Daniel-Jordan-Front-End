@@ -10,10 +10,10 @@ import { HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'FindPatients/:doctorId', component: FindPatientComponent},
-  { path: 'FindPatients/:doctorId/Treatments/:doctorId/:patientId', component: TreatmentComponent},
+  { path: 'FindPatients/:doctorId/Treatments/:patientId', component: TreatmentComponent},
   { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent},
-  { path: 'FindPatients/:doctorId/OpsRoom', component: OpsRoomComponent},
-  { path: 'FindPatients/:doctorId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent}
+  { path: 'FindPatients/:doctorId/:patientId/OpsRoom', component: OpsRoomComponent},
+  { path: 'FindPatients/:doctorId/:patientId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent}
 ];
 
 
