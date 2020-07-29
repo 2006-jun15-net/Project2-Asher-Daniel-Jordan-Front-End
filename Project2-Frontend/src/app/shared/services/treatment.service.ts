@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TreatmentService {
-  private readonly serviceUrl = environment.Url +'/api/Treatments';
+  private readonly serviceUrl = environment.Url + '/api/Treatments';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })

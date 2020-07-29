@@ -49,7 +49,7 @@ describe('TreatmentDetailsService', () => {
     expect(request.request.method).toBe('GET');
 
     request.flush(detail);
-  })
+  });
 
   it('should get a patients treatment detail', () => {
     const detail: any = {
@@ -74,7 +74,7 @@ describe('TreatmentDetailsService', () => {
     expect(request.request.method).toBe('GET');
 
     request.flush(detail);
-  })
+  });
 
   it('should create a new treatment detail', () => {
     const detail: any = {
@@ -104,7 +104,7 @@ describe('TreatmentDetailsService', () => {
     expect(request.request.method).toBe('POST');
 
     request.flush(detail);
-  })
+  });
 
   it('should update a treatment detail', () => {
     const detail: any = {
@@ -134,5 +134,5 @@ describe('TreatmentDetailsService', () => {
     expect(request.request.method).toBe('PUT');
 
     request.flush(detail);
-  })
+  });
 });

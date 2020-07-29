@@ -51,7 +51,9 @@ export class DoctorComponent implements OnInit {
 
 
  // public editDoctor(): void {
-  //  this.databaseDoctor.updateDoctor({ doctorId: this.selectedDoc.doctorId, firstName: this.selectedDoc.firstName, lastName: this.selectedDoc.lastName } as Doctor)
+  //  this.databaseDoctor.updateDoctor({ doctorId: this.selectedDoc.doctorId,
+  // firstName: this.selectedDoc.firstName,
+  // lastName: this.selectedDoc.lastName } as Doctor)
  //   .subscribe(doctor => this.doctor = doctor);
  // }
 

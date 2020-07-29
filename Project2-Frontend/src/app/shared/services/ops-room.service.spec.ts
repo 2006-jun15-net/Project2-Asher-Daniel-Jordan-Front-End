@@ -49,7 +49,7 @@ describe('OpsRoomService', () => {
     expect(request.request.method).toBe('GET');
 
     request.flush(rooms);
-  })
+  });
 
   it('should get all available rooms', () => {
     const rooms: any[] = [
@@ -71,7 +71,7 @@ describe('OpsRoomService', () => {
     expect(request.request.method).toBe('GET');
 
     request.flush(rooms);
-  })
+  });
 
   it('should update a room', () => {
     const opRoom: any = {
@@ -91,5 +91,5 @@ describe('OpsRoomService', () => {
     expect(request.request.method).toBe('PUT');
 
     request.flush(opRoom);
-  })
+  });
 });

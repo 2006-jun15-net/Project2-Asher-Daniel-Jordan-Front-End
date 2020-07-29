@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import {Patient } from '../models/patient'
+import {Patient } from '../models/patient';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PatientServiceService {
 
-  private readonly serviceUrl = environment.Url +'/api/Patients';
+  private readonly serviceUrl = environment.Url + '/api/Patients';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -26,7 +26,7 @@ export class PatientServiceService {
       map(resultData => resultData.map(data => new Patient().deserialize(data)))
     );
   }
-  
+
   // GET doctor by id
   public getDoctor(id: number): Observable<Patient> {
     return this.http.get<Patient>(`${this.serviceUrl}/${id}`).pipe(
@@ -34,7 +34,7 @@ export class PatientServiceService {
       catchError(() => this.handleError<Patient>(`getDoctor id =${id}`))
     ));
   }
-  
+
   // POST Doctor
   public addDoctor(patient: Patient): Observable<Patient> {
     return this.http.post<Patient>(`${this.serviceUrl}`, patient,
@@ -43,17 +43,17 @@ export class PatientServiceService {
       catchError(this.handleError<Patient>('addDoctor'))
     );
   }
-  
+
   // DELETE Doctor
   public deleteDoctor(patient: Patient | number): Observable<Patient> {
     const id = typeof patient === 'number' ? patient : patient.patientId;
-  
+
     return this.http.delete<Patient>(`${this.serviceUrl}/${id}`,
     this.httpOptions).pipe(
       catchError(this.handleError<Patient>('deleteDoctor'))
     );
   }
-  
+
   // PUT Doctor
   public updateDoctor(patient: Patient): Observable<any> {
     return this.http.put(`${this.serviceUrl}/${patient.patientId}`, patient,
@@ -63,7 +63,7 @@ export class PatientServiceService {
      );
   }
 
-  
+
 
 
  private handleError<T>(operation = 'operation', result?: T): any {
