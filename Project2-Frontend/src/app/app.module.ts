@@ -20,6 +20,7 @@ import {NgbNavModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssignPatientComponent } from './assign-patient/assign-patient.component';
+import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { AssignPatientComponent } from './assign-patient/assign-patient.componen
     OpsRoomComponent,
     BookOpsRoomComponent,
     DashboardComponent,
-    AssignPatientComponent
+    AssignPatientComponent,
+    DoctorDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./book-ops-room.component.css']
 })
 export class BookOpsRoomComponent implements OnInit {
-  //opsRoom: OpsRoom = new OpsRoom();
+  // opsRoom: OpsRoom = new OpsRoom();
   opsRoomId: any;
   patientId: any;
   doctorId: any;
@@ -33,7 +33,7 @@ export class BookOpsRoomComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params =>
       {
-        //this.opsRoom.opsRoomId = Number(params.get('opsRoomId'));
+        // this.opsRoom.opsRoomId = Number(params.get('opsRoomId'));
         this.opsRoomId = Number(params.get('opsRoomId'));
         this.patientId = Number(params.get('patientId'));
         this.doctorId = Number(params.get('doctorId'));

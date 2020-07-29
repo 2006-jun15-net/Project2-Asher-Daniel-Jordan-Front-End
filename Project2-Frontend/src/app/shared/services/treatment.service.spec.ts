@@ -30,21 +30,21 @@ describe('TreatmentService', () => {
         treatmentId: 1,
         illnessId: 3,
         doctorId: 1,
-        name: "giveTest",
+        name: 'giveTest',
         timeToTreat: 7
       },
       {
         treatmentId: 2,
         illnessId: 5,
         doctorId: 2,
-        name: "giveTest",
+        name: 'giveTest',
         timeToTreat: 12
       },
       {
         treatmentId: 3,
         illnessId: 1,
         doctorId: 5,
-        name: "giveTest",
+        name: 'giveTest',
         timeToTreat: 2
       }
     ];
@@ -57,7 +57,7 @@ describe('TreatmentService', () => {
     expect(request.request.method).toBe('GET');
 
     request.flush(treatments);
-  })
+  });
 
   it('should get treatments by doctor', () => {
     const treatments: any[] = [
@@ -65,21 +65,21 @@ describe('TreatmentService', () => {
         treatmentId: 1,
         illnessId: 3,
         doctorId: 1,
-        name: "giveTest",
+        name: 'giveTest',
         timeToTreat: 7
       },
       {
         treatmentId: 2,
         illnessId: 5,
         doctorId: 2,
-        name: "giveTest",
+        name: 'giveTest',
         timeToTreat: 12
       },
       {
         treatmentId: 3,
         illnessId: 1,
         doctorId: 5,
-        name: "giveTest",
+        name: 'giveTest',
         timeToTreat: 2
       }
     ];
@@ -92,14 +92,14 @@ describe('TreatmentService', () => {
     expect(request.request.method).toBe('GET');
 
     request.flush(treatments);
-  })
+  });
 
   it('should get a treatment', () => {
     const treatment: any = {
       treatmentId: 1,
       illnessId: 3,
       doctorId: 1,
-      name: "giveTest",
+      name: 'giveTest',
       timeToTreat: 7
     };
     service.getTreatmentInfo(1).subscribe(item => {
@@ -108,7 +108,7 @@ describe('TreatmentService', () => {
         treatmentId: 1,
         illnessId: 3,
         doctorId: 1,
-        name: "giveTest",
+        name: 'giveTest',
         timeToTreat: 7
       }));
     });
@@ -117,5 +117,5 @@ describe('TreatmentService', () => {
     expect(request.request.method).toBe('GET');
 
     request.flush(treatment);
-  })
+  });
 });

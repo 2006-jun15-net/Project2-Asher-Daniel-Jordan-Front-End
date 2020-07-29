@@ -68,7 +68,7 @@ export class TreatmentConfirmationComponent implements OnInit {
         startTime: 'dummyData'
       } as TreatmentDetails
     )
-    .subscribe(data => console.log("TreatmentDetail successfully created"),
+    .subscribe(data => console.log('TreatmentDetail successfully created'),
     error => this.handleHTTPError(error));
     this.goBackToFindPatients();
   }
@@ -76,7 +76,7 @@ export class TreatmentConfirmationComponent implements OnInit {
   private goBackToFindPatients(): void {
     this.router.navigate([`FindPatients/${this.doctorId}`]);
   }
-  
+
   private handleHTTPError(error: HttpErrorResponse): void {
     console.log(error.status);
     let message: string;
