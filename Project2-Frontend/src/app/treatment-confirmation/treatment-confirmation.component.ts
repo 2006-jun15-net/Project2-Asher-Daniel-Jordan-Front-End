@@ -68,7 +68,8 @@ export class TreatmentConfirmationComponent implements OnInit {
         startTime: 'dummyData'
       } as TreatmentDetails
     )
-    .catch(error => this.handleHTTPError(error));
+    .subscribe(data => console.log("TreatmentDetail successfully created"),
+    error => this.handleHTTPError(error));
     this.goBackToFindPatients();
   }
 

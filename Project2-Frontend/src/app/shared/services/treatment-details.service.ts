@@ -26,8 +26,11 @@ export class TreatmentDetailsService {
     );
   }
 
-  public createTreatmentDetail(treatmentDetails: TreatmentDetails): Promise<TreatmentDetails> {
-    return this.http.post<TreatmentDetails>(`${this.serviceUrl}`, treatmentDetails).toPromise();
+  public createTreatmentDetail(treatmentDetails: TreatmentDetails): Observable<TreatmentDetails> {
+    return this.http.post<TreatmentDetails>(`${this.serviceUrl}`, treatmentDetails)
+    .pipe(
+      map(data => new TreatmentDetails().deserialize(data))
+    );
   }
 
   public getPatientTreatment(patientId: number): Observable<TreatmentDetails> {
