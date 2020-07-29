@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class OpsRoomService {
-  private readonly serviceUrl = environment.Url +'/api/OpsRooms';
-  
+  private readonly serviceUrl = environment.Url + '/api/OpsRooms';
+
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })

@@ -12,7 +12,7 @@ describe('FindPatientService', () => {
       imports: [HttpClientTestingModule],
       providers: [FindPatientService]
     });
-    //service = TestBed.inject(FindPatientService);
+    // service = TestBed.inject(FindPatientService);
     service = TestBed.get(FindPatientService);
     httpMock = TestBed.get(HttpTestingController);
   });
@@ -47,7 +47,7 @@ describe('FindPatientService', () => {
     expect(request.request.method).toBe('GET');
 
     request.flush(patientItem);
-  })
+  });
 
   it('should fetch patients as observable', () => {
     const tableItems: any[] = [
@@ -80,16 +80,16 @@ describe('FindPatientService', () => {
       {
         patientId: 1,
         patientRoomId: 1,
-        firstName: "PTest1",
-        lastName: "PTestLast1"
+        firstName: 'PTest1',
+        lastName: 'PTestLast1'
       },
       {
         patientId: 2,
         patientRoomId: 2,
-        firstName: "PTest2",
-        lastName: "PTestLast2"
+        firstName: 'PTest2',
+        lastName: 'PTestLast2'
       }
-    ]
+    ];
 
     service.getDocterPatients(2).subscribe( patients => {
       expect(patients.length).toBe(2);
@@ -98,5 +98,5 @@ describe('FindPatientService', () => {
     expect(request.request.method).toBe('GET');
 
     request.flush(tableItems);
-  })
+  });
 });

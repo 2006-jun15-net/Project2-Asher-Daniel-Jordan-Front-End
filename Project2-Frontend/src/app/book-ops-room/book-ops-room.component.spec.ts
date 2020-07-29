@@ -21,12 +21,12 @@ describe('BookOpsRoomComponent', () => {
 
   beforeEach(async(() => {
     const matSnackBar = jasmine.createSpyObj('MatSnackBar', ['open']);
-    
+
     TestBed.configureTestingModule({
       declarations: [ BookOpsRoomComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [{ provide: MatSnackBar, useValue: matSnackBar },
-        //{ provide: ActivatedRoute, useValue: activatedRouteMock }
+        // { provide: ActivatedRoute, useValue: activatedRouteMock }
       ]
     })
     .compileComponents();

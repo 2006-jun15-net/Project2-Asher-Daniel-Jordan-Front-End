@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DoctorService {
 
-  private readonly serviceUrl = environment.Url +'/api/Doctors';
+  private readonly serviceUrl = environment.Url + '/api/Doctors';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

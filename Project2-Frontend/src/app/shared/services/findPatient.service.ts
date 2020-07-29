@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class FindPatientService {
-  private readonly serviceUrl = environment.Url +'/api/Patients';
-  
+  private readonly serviceUrl = environment.Url + '/api/Patients';
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
   };
