@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OpsRoomService } from '../shared/services/ops-room.service'
-import { OpsRoom } from '../shared/models/opsroom'
+import { OpsRoomService } from '../shared/services/ops-room.service';
+import { OpsRoom } from '../shared/models/opsroom';
 import { Observable } from 'rxjs';
 
 import { ActivatedRoute } from '@angular/router';
@@ -24,6 +24,10 @@ export class BookOpsRoomComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params =>
+      {
+        this.opsRoom.opsRoomId = Number(params.get('opsRoomId'));
+      });
   }
 
   goBack(): void {
@@ -31,10 +35,8 @@ export class BookOpsRoomComponent implements OnInit {
   }
 
   confirm(): void {
-    this.opsRoom!.opsRoomId = +this.route.snapshot.paramMap.get('opsRoomId')!;
-    this.opsRoom!.available = false;
-    this.databaseOpsRoom.updateRoom(this.opsRoom)
-    .subscribe( data => console.log("PUT was successful", data),
+    this.databaseOpsRoom.updateRoom({opsRoomId: this.opsRoom.opsRoomId, available: false} as OpsRoom)
+    .subscribe( data => console.log('PUT was successful', data),
     error => this.handleHTTPError(error)
     );
   }
