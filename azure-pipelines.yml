@@ -56,7 +56,7 @@ steps:
       cliProjectKey: '2006-jun15-net_Project2-Asher-Daniel-Jordan-Front-End'
       cliSources: '$(workingDir)/src'
       extraProperties: |
-        sonar.coverage.exclusions=**/*.spec.ts,$(appDir)/e2e/**/*
+        sonar.coverage.exclusions=**/*.spec.ts,$(workingDir)/e2e/**/*
         sonar.typescript.lcov.reportPaths=$(workingDir)/coverage/$(workingDir)/lcov.info
 
   - task: SonarCloudAnalyze@1
