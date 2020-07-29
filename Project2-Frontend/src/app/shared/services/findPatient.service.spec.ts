@@ -2,7 +2,6 @@ import { TestBed, async, inject } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { FindPatientService } from './findPatient.service';
-import { Patient } from '../models/patient';
 
 describe('FindPatientService', () => {
   let service: FindPatientService;
@@ -22,10 +21,6 @@ describe('FindPatientService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('#getDoctorPatients', () => {
-
-  });
-
   afterEach(() => {
     httpMock.verify();
   });
@@ -41,7 +36,12 @@ describe('FindPatientService', () => {
 
     service.getPatientByRoom(5).subscribe(patient => {
       expect(patient.patientRoomId).toBe(5);
-      //expect(Object(patient)).toEqual(patientItem);
+      expect(patient).toEqual(jasmine.objectContaining({
+        patientId: 1,
+        patientRoomId: 5,
+        firstName: 'Test',
+        lastName: 'TestLast',
+      }));
     });
     const request = httpMock.expectOne(`https://localhost:44362/api/Patients/PatientRoom/5`);
     expect(request.request.method).toBe('GET');
