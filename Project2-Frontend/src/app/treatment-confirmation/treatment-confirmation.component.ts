@@ -5,7 +5,7 @@ import {Treatment} from '../shared/models/treatment';
 import { TreatmentDetails } from '../shared/models/treatmentDetails';
 import { Observable } from 'rxjs';
 
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,6 +20,7 @@ export class TreatmentConfirmationComponent implements OnInit {
   public treatmentDetails: TreatmentDetails = new TreatmentDetails();
   public treatmentId: number | undefined;
   public patientId: number | undefined;
+  public doctorId: number | undefined;
 
   td: any = {
     opsRoomId: null,
@@ -32,6 +33,7 @@ export class TreatmentConfirmationComponent implements OnInit {
     private databaseTreatment: TreatmentService,
     private databaseTreamentDetails: TreatmentDetailsService,
     private route: ActivatedRoute,
+    private router: Router,
     private readonly snackBar: MatSnackBar,
     private location: Location
   ) { }
@@ -41,6 +43,7 @@ export class TreatmentConfirmationComponent implements OnInit {
       {
         this.treatmentId = Number(params.get('treatmentId'));
         this.patientId = Number(params.get('patientId'));
+        this.doctorId = Number(params.get('doctorId'));
       }
     );
     this.getTreatmentInfo();
@@ -58,15 +61,22 @@ export class TreatmentConfirmationComponent implements OnInit {
   confirmTreatment(): void {
     this.databaseTreamentDetails.createTreatmentDetail(
       {
+        treatmentDetailsId: 0,
         opsRoomId: null,
         treatmentId: this.treatmentId,
         patientId: this.patientId,
         startTime: 'dummyData'
       } as TreatmentDetails
     )
-    .catch(error => this.handleHTTPError(error));
+    .subscribe(data => console.log("TreatmentDetail successfully created"),
+    error => this.handleHTTPError(error));
+    this.goBackToFindPatients();
   }
 
+  private goBackToFindPatients(): void {
+    this.router.navigate([`FindPatients/${this.doctorId}`]);
+  }
+  
   private handleHTTPError(error: HttpErrorResponse): void {
     console.log(error.status);
     let message: string;

@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Patient } from '../models/patient';
 import { environment } from 'src/environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,4 +34,9 @@ export class FindPatientService {
       map(data => new Patient().deserialize(data))
     );
   }
+
+  // deserialize(input: any): this {
+  //   Object.assign(this, input);
+  //   return this;
+  // }
 }
