@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientServiceService } from '../shared/services/patient-service.service';
+import { Patient } from '../shared/models/patient';
 
 @Component({
   selector: 'app-assign-patient',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssignPatientComponent implements OnInit {
 
-  constructor() { }
+  patients: Patient[] | null = null;
+
+  constructor(private pService: PatientServiceService) { }
 
   ngOnInit(): void {
   }
