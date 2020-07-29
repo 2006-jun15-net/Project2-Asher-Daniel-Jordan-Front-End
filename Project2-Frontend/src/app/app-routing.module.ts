@@ -9,11 +9,13 @@ import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 import { HttpClientModule} from '@angular/common/http';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'details/:id', component: DoctorDetailsComponent},
   { path: 'doctor', component: DoctorComponent},
   { path: 'FindPatients/:doctorId', component: FindPatientComponent},
   { path: 'FindPatients/:doctorId/Treatments/:patientId', component: TreatmentComponent},
