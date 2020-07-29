@@ -1,1 +1,18 @@
-<p>doctor-details works!</p>
+<div>(doctor-details)</div>
+
+<div *ngIf="doctor">
+    <h2>{{doctor.firstName | uppercase}} {{doctor.lastName | uppercase}} Details</h2>
+    <div><span>id: </span>{{doctor.doctorId}}</div>
+    <div>
+      <label>first name:
+        <input [(ngModel)]="doctor.firstName" placeholder="first name"/>
+      </label>
+    </div>
+    <div>
+        <label>last name:
+          <input [(ngModel)]="doctor.lastName" placeholder="last name"/>
+        </label>
+      </div>
+    <button (click)="goBack()">go back</button>
+    <button (click)="editDoctor()">save</button>
+</div>
