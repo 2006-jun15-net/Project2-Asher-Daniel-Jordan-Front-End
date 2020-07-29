@@ -5,13 +5,13 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Treatment } from '../models/treatment';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TreatmentService {
-  private serviceUrl = 'https://localhost:44362/api/Treatments';
-  // private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Treatments';
+  private readonly serviceUrl = environment.Url +'/api/Treatments';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })

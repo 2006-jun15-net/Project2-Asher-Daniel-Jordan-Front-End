@@ -5,13 +5,14 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import {Patient } from '../models/patient'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PatientServiceService {
 
-  private serviceUrl = 'https://localhost:44362/api/Patients';
+  private readonly serviceUrl = environment.Url +'/api/Patients';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
