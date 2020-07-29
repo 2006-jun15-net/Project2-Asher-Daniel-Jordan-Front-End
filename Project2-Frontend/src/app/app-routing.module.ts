@@ -6,8 +6,14 @@ import { FindPatientComponent } from './findPatient/findPatient.component';
 import { TreatmentConfirmationComponent } from './treatment-confirmation/treatment-confirmation.component';
 import { OpsRoomComponent } from './ops-room/ops-room.component';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 const routes: Routes =[
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'doctor', component: DoctorComponent},
   { path: 'FindPatients/:doctorId', component: FindPatientComponent},
   { path: 'FindPatients/:doctorId/Treatments/:doctorId/:patientId', component: TreatmentComponent},
   { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent},

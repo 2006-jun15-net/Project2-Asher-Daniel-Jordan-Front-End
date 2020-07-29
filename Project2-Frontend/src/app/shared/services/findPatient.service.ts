@@ -14,7 +14,7 @@ export class FindPatientService {
   //private serviceUrl = 'https://project2-hospital-frontend.azurewebsites.net/api/Patients';
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
   constructor(private http: HttpClient) { }
