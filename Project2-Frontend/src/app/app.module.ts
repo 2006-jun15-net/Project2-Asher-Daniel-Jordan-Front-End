@@ -21,6 +21,8 @@ import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssignPatientComponent } from './assign-patient/assign-patient.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
+import { PatientComponent } from './patient/patient.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { DoctorDetailsComponent } from './doctor-details/doctor-details.componen
     BookOpsRoomComponent,
     DashboardComponent,
     AssignPatientComponent,
-    DoctorDetailsComponent
+    DoctorDetailsComponent,
+    PatientComponent,
+    PatientDetailsComponent
   ],
   imports: [
     BrowserModule,

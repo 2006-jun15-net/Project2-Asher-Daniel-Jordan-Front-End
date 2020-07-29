@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class PatientServiceService {
+export class PatientService {
 
   private readonly serviceUrl = environment.Url + '/api/Patients';
 
