@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Patient } from '../models/patient';
+import {Patient} from '../models/patient';
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +32,9 @@ export class FindPatientService {
       map(data => new Patient().deserialize(data))
     );
   }
+
+  // deserialize(input: any): this {
+  //   Object.assign(this, input);
+  //   return this;
+  // }
 }

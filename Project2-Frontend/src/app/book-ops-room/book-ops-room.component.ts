@@ -16,9 +16,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./book-ops-room.component.css']
 })
 export class BookOpsRoomComponent implements OnInit {
-  opsRoom: OpsRoom = new OpsRoom();
-  patientId: number | undefined;
-  doctorId: number | undefined;
+  //opsRoom: OpsRoom = new OpsRoom();
+  opsRoomId: any;
+  patientId: any;
+  doctorId: any;
 
   constructor(
     private databaseOpsRoom: OpsRoomService,
@@ -32,7 +33,8 @@ export class BookOpsRoomComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params =>
       {
-        this.opsRoom.opsRoomId = Number(params.get('opsRoomId'));
+        //this.opsRoom.opsRoomId = Number(params.get('opsRoomId'));
+        this.opsRoomId = Number(params.get('opsRoomId'));
         this.patientId = Number(params.get('patientId'));
         this.doctorId = Number(params.get('doctorId'));
       });
@@ -43,7 +45,7 @@ export class BookOpsRoomComponent implements OnInit {
   }
 
   confirm(): void {
-    this.databaseOpsRoom.updateRoom({opsRoomId: this.opsRoom.opsRoomId, available: false} as OpsRoom)
+    this.databaseOpsRoom.updateRoom({opsRoomId: this.opsRoomId, available: false} as OpsRoom)
     .subscribe( data => console.log('OpsRoom PUT was successful', data),
     error => this.handleHTTPError(error)
     );
@@ -54,7 +56,7 @@ export class BookOpsRoomComponent implements OnInit {
   private updatePatientTreatmentDetails(): void {
     this.databaseTreatmentDetails.getPatientTreatment(Number(this.patientId))
     .subscribe(treatment => {
-      treatment.opsRoomId = Number(this.opsRoom.opsRoomId);
+      treatment.opsRoomId = Number(this.opsRoomId);
       this.databaseTreatmentDetails.updateTreatmentDetail(treatment as TreatmentDetails)
         .subscribe(data => console.log('TreatmentDetails PUT was successful', data),
           error => this.handleHTTPError(error));
