@@ -6,6 +6,7 @@ import { FindPatientComponent } from './findPatient/findPatient.component';
 import { TreatmentConfirmationComponent } from './treatment-confirmation/treatment-confirmation.component';
 import { OpsRoomComponent } from './ops-room/ops-room.component';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
+import { HttpClientModule} from '@angular/common/http';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -19,7 +20,7 @@ const routes: Routes =[
   { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent},
   { path: 'FindPatients/:doctorId/OpsRoom', component: OpsRoomComponent},
   { path: 'FindPatients/:doctorId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent}
-]
+];
 
 
 
@@ -27,7 +28,8 @@ const routes: Routes =[
   declarations: [],
   imports: [
     RouterModule.forRoot(routes),
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   exports: [RouterModule]
 })

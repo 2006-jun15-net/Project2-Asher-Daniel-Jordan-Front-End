@@ -12,24 +12,29 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TreatmentComponent implements OnInit {
   public treatments: Treatment[] | null = null;
-  public patientId: number | null = null;
+  public patientId: number | undefined;
+  public doctorId: number | undefined;
 
   constructor(private databaseTreatment: TreatmentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params =>
+      {
+        this.patientId = Number(params.get('patientId'));
+        this.doctorId = Number(params.get('doctorId'));
+      }
+    );
     this.getTreatments();
-    this.patientId = +this.route.snapshot.paramMap.get('patientId')!;
   }
 
-  public getTreatmentsList() {
+  public getTreatmentsList(): void {
     this.databaseTreatment.getTreatments()
     .subscribe(treatments => this.treatments = treatments);
   }
 
-  
-  public getTreatments() {
-    const doctorId = +this.route.snapshot.paramMap.get('doctorId')!;
-    this.databaseTreatment.getTreatmentsByDoctor(doctorId)
+
+  public getTreatments(): void {
+    this.databaseTreatment.getTreatmentsByDoctor(Number(this.doctorId))
     .subscribe(treatments => this.treatments = treatments);
   }
 }

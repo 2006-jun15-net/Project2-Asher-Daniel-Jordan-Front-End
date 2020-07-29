@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AppService } from './shared/services/doctor.service';
-import { TreatmentService } from './shared/services/treatment.service'
+import { DoctorService } from './shared/services/doctor.service';
+import { TreatmentService } from './shared/services/treatment.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DoctorComponent } from './doctor/doctor.component';
 import { CommonModule } from '@angular/common';
@@ -19,7 +19,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {NgbNavModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AssignPatientComponent } from './assign-patient/assign-patient.component';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     OpsRoomComponent,
     BookOpsRoomComponent,
     DashboardComponent
+    AssignPatientComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NgbNavModule,
     NgbModule,
   ],
-  providers: [AppService, TreatmentService],
+  providers: [DoctorService, TreatmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
