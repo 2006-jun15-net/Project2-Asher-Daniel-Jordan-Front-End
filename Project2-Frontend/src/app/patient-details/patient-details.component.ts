@@ -15,9 +15,9 @@ import {Treatment} from '../shared/models/treatment';
 })
 export class PatientDetailsComponent implements OnInit {
 
-  @Input() patient: any ;
-  @Input() treatmentDetails: any ;
-  @Input() treatment: any ;
+  @Input() patient: any;
+  public treatmentDetails: TreatmentDetails[] | null = null;
+
 
   id2: string;
   public pat = localStorage.getItem('patient');
@@ -26,7 +26,6 @@ export class PatientDetailsComponent implements OnInit {
   constructor(
   private pService: PatientService,
   private tdService: TreatmentDetailsService,
-  private tService: TreatmentService,
   private route: ActivatedRoute,
   private location: Location
   ) {
@@ -36,7 +35,7 @@ export class PatientDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getPatient();
     this.getTreatmentDetails();
-   // this.getTreatment();
+
   }
 
   getPatient(): void {
@@ -49,20 +48,17 @@ export class PatientDetailsComponent implements OnInit {
     const id = parseInt(this.id2, 10);
     this.tdService.getPatientTreatment(id)
     .subscribe(td => this.treatmentDetails = td);
+  }
 
+  assignPatient(): void {
+    const id = parseInt(this.id2, 10);
+    this.pService.assignPatientToRoom(id)
+      .subscribe(patient => this.patient = patient);
 
   }
 
-
-
-  getTreatment(): void {
-    const id = parseInt(this.treatmentDetails.treatmentId, 10);
-    this.tService.getTreatmentInfo(id)
-    .subscribe(t => this.treatment = t);
-  }
 
   deletePatient(): void{
-
     const id = parseInt(this.id2, 10);
     this.pService.deletePatient(id);
     this.goBack();

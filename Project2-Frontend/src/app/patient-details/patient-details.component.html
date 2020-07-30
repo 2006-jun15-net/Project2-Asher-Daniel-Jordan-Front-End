@@ -4,20 +4,35 @@
         {{patient.firstName | uppercase}} {{patient.lastName | uppercase}}
 
     </h2>
-        <ul>
-            <li>
-                <label for="patientroomid">Patient Room Number:</label>
-                <p id="patientroomid">{{patient.patientRoomId}}</p>
-            </li>
-            <li *ngIf="treatment">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <form>
+                    <label for="patientroomid">Patient Room Number:</label>
+                    <input type="number" [(ngModel)]="patient.patientRoomId" name="patient-room-id">
+                    <div *ngIf="patient.patientRoomId == null">
+                        <button class="btn btn-primary" (click)="assignPatient()">Assign Patient To Room</button>
+                    </div>
+                </form>
                 
-                <div *ngIf="treatment" name="treatment-details"> Treatment Information
-                    <label for="treatment-name">Treatment Name</label>
-                    <p id="treatment-name">{{treatment.name}}</p>
 
-                    <label for="treatment-time">Treatment Time</label>
-                    <p id="treatment-time">{{treatment.timeToTreat}}</p>
-                </div>
+            </li>
+            <li *ngIf="treatmentDetails" class="list-group-item">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                       <th>Treatment ID</th>
+                       <th>Operation Room ID</th>
+                       <th>Start Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let td of treatmentDetails">
+                            <td>{{td.treatmentId}}</td>
+                            <td>{{td.opsRoomId}}</td>
+                            <td>{{td.startTime}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </li>
         </ul>
 
