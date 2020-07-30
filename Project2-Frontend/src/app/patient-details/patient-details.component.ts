@@ -15,9 +15,12 @@ import {Treatment} from '../shared/models/treatment';
 })
 export class PatientDetailsComponent implements OnInit {
 
-  @Input()  patient: Patient | any ;
-  @Input() treatmentDetails: TreatmentDetails | any;
-  @Input() treatment: Treatment | any ;
+  @Input() patient: any ;
+  @Input() treatmentDetails: any ;
+  @Input() treatment: any ;
+
+  id2: string;
+  public pat = localStorage.getItem('patient');
 
 
   constructor(
@@ -26,44 +29,41 @@ export class PatientDetailsComponent implements OnInit {
   private tService: TreatmentService,
   private route: ActivatedRoute,
   private location: Location
-) {}
+  ) {
+    this.id2 = this.route.snapshot.params.id;
+  }
 
   ngOnInit(): void {
-
-
     this.getPatient();
     this.getTreatmentDetails();
-    this.getTreatment();
+   // this.getTreatment();
   }
 
   getPatient(): void {
-
-      const id = Number(this.route.snapshot.paramMap.get('id'));
-
-
-
+      const id = parseInt(this.id2, 10);
       this.pService.getPatient(id)
-    .subscribe(patient => this.patient = patient);
+        .subscribe(patient => this.patient = patient);
   }
 
   getTreatmentDetails(): void {
-
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = parseInt(this.id2, 10);
     this.tdService.getPatientTreatment(id)
     .subscribe(td => this.treatmentDetails = td);
 
 
   }
 
+
+
   getTreatment(): void {
-    const id = Number(this.treatmentDetails.treatmentId);
+    const id = parseInt(this.treatmentDetails.treatmentId, 10);
     this.tService.getTreatmentInfo(id)
     .subscribe(t => this.treatment = t);
   }
 
   deletePatient(): void{
 
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = parseInt(this.id2, 10);
     this.pService.deletePatient(id);
     this.goBack();
   }
