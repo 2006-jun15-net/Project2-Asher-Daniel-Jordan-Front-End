@@ -10,10 +10,27 @@ import {Patient} from '../shared/models/patient'
 export class PatientComponent implements OnInit {
 
   patients: Patient[] | null = null;
+  public patientid: number | null = null;
+  public patient: Patient | null = null;
+  public error: string | null = null;
+
+
+
+
 
   constructor(private pService: PatientService) { }
 
   ngOnInit(): void {
+    this.getPatients();
   }
+
+  public getPatients(): void {
+    this.pService.getPatients()
+    .subscribe(patients => this.patients = patients);
+  }
+
+ 
+  
+
 
 }
