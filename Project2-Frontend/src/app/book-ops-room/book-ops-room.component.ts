@@ -54,7 +54,7 @@ export class BookOpsRoomComponent implements OnInit {
   }
 
   private updatePatientTreatmentDetails(): void {
-    this.databaseTreatmentDetails.getPatientTreatment(Number(this.patientId))
+    this.databaseTreatmentDetails.getSinglePatientTreatment(Number(this.patientId))
     .subscribe(treatment => {
       treatment.opsRoomId = Number(this.opsRoomId);
       this.databaseTreatmentDetails.updateTreatmentDetail(treatment as TreatmentDetails)

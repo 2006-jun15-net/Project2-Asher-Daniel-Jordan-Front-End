@@ -40,11 +40,18 @@ export class TreatmentDetailsService {
     );
   }
 
-  public getPatientTreatment(patientId: number): Observable<TreatmentDetails> {
+  public getPatientTreatment(patientId: number): Observable<TreatmentDetails[]> {
+    return this.http.get<TreatmentDetails[]>(`${this.serviceUrl}/GetPatientsTreatment/${patientId}`)
+    .pipe(
+      map(data => data.map(data1 => new TreatmentDetails().deserialize(data1)))
+    );
+  }
+
+  public getSinglePatientTreatment(patientId: number): Observable<TreatmentDetails> {
     return this.http.get<TreatmentDetails>(`${this.serviceUrl}/GetPatientsTreatment/${patientId}`)
     .pipe(
-      map(data3 => new TreatmentDetails().deserialize(data3))
-    );
+      map(data2 => new TreatmentDetails().deserialize(data2))
+      );
   }
 
   public updateTreatmentDetail(treatmentDetail: TreatmentDetails): Observable<TreatmentDetails> {
