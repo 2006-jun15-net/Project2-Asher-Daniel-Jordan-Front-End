@@ -9,16 +9,18 @@ import {Patient} from '../shared/models/patient';
 })
 export class PatientComponent implements OnInit {
 
-  patients: Patient[] | null = null;
-  public patientid: number | null = null;
-  public patient: Patient | null = null;
-  public error: string | null = null;
-
 
 
 
 
   constructor(private pService: PatientService) { }
+
+  patients: Patient[] | null = null;
+  public patientid: number | null = null;
+  public patient: Patient | null = null;
+  public error: string | null = null;
+
+  public doc = localStorage.getItem('doctor');
 
   ngOnInit(): void {
     this.getPatients();

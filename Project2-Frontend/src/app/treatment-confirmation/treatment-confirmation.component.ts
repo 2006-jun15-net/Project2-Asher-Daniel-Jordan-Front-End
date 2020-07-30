@@ -38,7 +38,12 @@ export class TreatmentConfirmationComponent implements OnInit {
     private location: Location
   ) { }
 
+  public doc = localStorage.getItem('doctor');
+
   ngOnInit(): void {
+    if (this.doc == null){
+      this.router.navigate(['/login']);
+    }
     this.route.paramMap.subscribe(params =>
       {
         this.treatmentId = Number(params.get('treatmentId'));
