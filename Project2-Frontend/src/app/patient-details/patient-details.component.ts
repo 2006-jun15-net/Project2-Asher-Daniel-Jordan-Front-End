@@ -14,9 +14,10 @@ import {Treatment} from '../shared/models/treatment'
 })
 export class PatientDetailsComponent implements OnInit {
 
-  public patient: Patient ;
-  public treatmentDetails: TreatmentDetails;
-  public treatment: Treatment ;
+  @Input()  patient: Patient | any ;
+  @Input() treatmentDetails: TreatmentDetails | any;
+  @Input() treatment: Treatment | any ;
+    
 
   constructor
   (private pService: PatientService, 
@@ -25,14 +26,13 @@ export class PatientDetailsComponent implements OnInit {
     private route: ActivatedRoute) { 
 
       
-      this.treatmentDetails = new TreatmentDetails;
-      this.patient = new Patient;
-      this.treatment = new Treatment;
+     
       
     }
 
   ngOnInit(): void {
 
+    debugger;
     this.getPatient();
     this.getTreatmentDetails();
     this.getTreatment();
