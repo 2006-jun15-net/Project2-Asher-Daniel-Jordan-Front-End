@@ -29,21 +29,21 @@ export class TreatmentDetailsService {
   public createTreatmentDetail(treatmentDetails: TreatmentDetails): Observable<TreatmentDetails> {
     return this.http.post<TreatmentDetails>(`${this.serviceUrl}`, treatmentDetails)
     .pipe(
-      map(data => new TreatmentDetails().deserialize(data))
+      map(data2 => new TreatmentDetails().deserialize(data2))
     );
   }
 
   public getDoctorTreatmentDetails(doctorId: number): Observable<TreatmentDetails[]> {
     return this.http.get<TreatmentDetails[]>(`${this.serviceUrl}/Doctor/${doctorId}`)
     .pipe(
-      map(data => data.map(data => new TreatmentDetails().deserialize(data)))
+      map(data => data.map(data1 => new TreatmentDetails().deserialize(data1)))
     );
   }
 
   public getPatientTreatment(patientId: number): Observable<TreatmentDetails> {
     return this.http.get<TreatmentDetails>(`${this.serviceUrl}/GetPatientsTreatment/${patientId}`)
     .pipe(
-      map(data => new TreatmentDetails().deserialize(data))
+      map(data3 => new TreatmentDetails().deserialize(data3))
     );
   }
 

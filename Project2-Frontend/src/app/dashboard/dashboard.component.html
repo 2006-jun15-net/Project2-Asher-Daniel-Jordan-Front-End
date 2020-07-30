@@ -1,5 +1,6 @@
 <div>(dashboard)</div>
 
+<<<<<<< HEAD
 
 <ul>
     <nav>
@@ -12,3 +13,25 @@
         <a routerLink="/patient">View Patient List</a>
     </nav>
 </ul>
+=======
+<div *ngIf="doc">
+    <button (click)="logout()">doctor logout</button>
+</div>
+<div *ngIf="nur">
+    <button (click)="logout()">nurse logout</button>
+</div>
+<div *ngIf="pat">
+    <button (click)="logout()">patient logout</button>
+</div>
+<div *ngIf="adm">
+    <button (click)="logout()">admin logout</button>
+    <ul>
+        <nav>
+            <a routerLink="/FindPatients/2">Patients</a>
+        </nav>
+        <nav>
+            <a routerLink="/doctor">Doctors</a>
+        </nav>
+    </ul>
+</div>
+>>>>>>> ca0fc63cf5a010d7e3ce8b18a0cb46fe4bb854b1

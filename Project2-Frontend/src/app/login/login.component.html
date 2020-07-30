@@ -1,0 +1,23 @@
+<div>(login)</div>
+
+
+<div *ngIf="!adm">
+    <div>
+        <h4>{{ access }} {{ userId }}</h4>
+        <label>
+            Access Level: 
+            <input [(ngModel)]="access" placeholder="Access Level"/>
+        </label>
+        <label>
+            User ID: 
+            <input [(ngModel)]="userId" placeholder="User ID"/>
+        </label>
+    </div>
+    <button title="Login" 
+                (click)="login()">Login</button>
+    <br>
+</div>
+
+<div *ngIf="adm">
+    <a routerLink="/dashboard">Dashboard</a>
+</div>
