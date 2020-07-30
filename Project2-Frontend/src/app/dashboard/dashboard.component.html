@@ -2,6 +2,9 @@
 
 <div *ngIf="doc">
     <button (click)="logout()">doctor logout</button>
+    <nav>
+        <a routerLink="/details/{{doc}}">Doctor Profile</a>
+    </nav>
 </div>
 <div *ngIf="nur">
     <button (click)="logout()">nurse logout</button>

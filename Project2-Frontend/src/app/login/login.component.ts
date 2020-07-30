@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   public login(): void {
     if ( this.access === 'doctor'){
       localStorage.setItem('doctor', `${this.userId}`);
+      this.Route.navigate([`/details/${this.userId}`]);
     }
     if ( this.access === 'patient'){
       localStorage.setItem('patient', `${this.userId}`);
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
 
   public pageLoad(): void {
     if (this.doc != null ){
-
+      this.Route.navigate([`/details/${this.doc}`]);
     }
     if (this.nur != null ){
 
