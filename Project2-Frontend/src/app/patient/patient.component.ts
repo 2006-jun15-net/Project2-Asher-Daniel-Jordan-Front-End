@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../shared/services/patient.service';
-import {Patient} from '../shared/models/patient'
+import {Patient} from '../shared/models/patient';
 
 @Component({
   selector: 'app-patient',
@@ -29,8 +29,8 @@ export class PatientComponent implements OnInit {
     .subscribe(patients => this.patients = patients);
   }
 
- 
-  
+
+
 
 
 }
