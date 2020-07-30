@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TreatmentDetailsService } from '../shared/services/treatment-details.service';
 import { TreatmentService } from '../shared/services/treatment.service';
-import { OpsRoomService } from '../shared/services/ops-room.service'
+import { OpsRoomService } from '../shared/services/ops-room.service';
 import { TreatmentDetails } from '../shared/models/treatmentDetails';
 import {Treatment} from '../shared/models/treatment';
 import {OpsRoom} from '../shared/models/opsroom';
@@ -61,23 +61,23 @@ export class TreatmentDetailsComponent implements OnInit {
   }
 
   // Choose treatment using select dropdown
-  changeTreatment(e: Event) {
-    this.detailsForm.controls.treatmentId.setValue(parseInt((<HTMLSelectElement>e.srcElement).value));
+  changeTreatment(e: Event): void {
+    this.detailsForm.controls.treatmentId.setValue(parseInt((e.target as HTMLSelectElement).value, 10));
   }
 
   // Choose opsRoom using select dropdown
-  changeOpsRoom(e: Event) {
-    if((<HTMLSelectElement>e.srcElement).value == "null")
+  changeOpsRoom(e: Event): void {
+    if ((e.target as HTMLSelectElement).value === 'null')
     {
       this.detailsForm.controls.opsRoomId.setValue(null);
     }
     else
     {
-      this.detailsForm.controls.opsRoomId.setValue(parseInt((<HTMLSelectElement>e.srcElement).value));
+      this.detailsForm.controls.opsRoomId.setValue(parseInt((e.target as HTMLSelectElement).value, 10));
     }
   }
 
-  get f() {
+  get f(): any {
     return this.detailsForm.controls;
   }
 
@@ -91,17 +91,17 @@ export class TreatmentDetailsComponent implements OnInit {
         startTime: 'dummyData'
       } as TreatmentDetails
     )
-    .subscribe(data => 
-      { 
+    .subscribe(data =>
+      {
         console.log('TreatmentDetail successfully created');
-        if(this.detailsForm.controls.opsRoomId.value != null) 
+        if (this.detailsForm.controls.opsRoomId.value != null)
         {
           this.databaseOpsRoom.updateRoom(
             {
               opsRoomId: this.detailsForm.controls.opsRoomId.value,
-              available: false 
+              available: false
             } as OpsRoom)
-            .subscribe(opsData => console.log("OpsRoom Successfully updated"),
+            .subscribe(opsData => console.log('OpsRoom Successfully updated'),
             error => this.handleHTTPError(error));
         }
       }, error => this.handleHTTPError(error));

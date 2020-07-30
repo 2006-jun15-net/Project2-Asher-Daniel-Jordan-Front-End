@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { TreatmentConfirmationComponent } from './treatment-confirmation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('TreatmentConfirmationComponent', () => {
   let component: TreatmentConfirmationComponent;
@@ -14,7 +15,7 @@ describe('TreatmentConfirmationComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ TreatmentConfirmationComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule],
-      providers: [{ provide: MatSnackBar, useValue: matSnackBar }]
+      providers: [{ provide: MatSnackBar, useValue: matSnackBar }, FormsModule, ReactiveFormsModule]
     })
     .compileComponents();
   }));
