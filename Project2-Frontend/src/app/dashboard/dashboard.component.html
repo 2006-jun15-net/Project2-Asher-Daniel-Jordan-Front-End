@@ -11,18 +11,19 @@
 </div>
 <div *ngIf="pat">
     <button (click)="logout()">patient logout</button>
+    <a routerLink="/patient-details/{{pat}}">Patient Profile</a>
 </div>
 <div *ngIf="adm">
     <button (click)="logout()">admin logout</button>
     <ul>
         <nav>
-            <a routerLink="/FindPatients/2">Patients</a>
+            <a routerLink="/FindPatients/2">Search Patients</a>
         </nav>
         <nav>
             <a routerLink="/doctor">Doctors</a>
         </nav>
         <nav>
-            <a routerLink="/patient">View Patient List</a>
+            <a routerLink="/patient">Patients List</a>
         </nav>
     </ul>
 </div>

@@ -26,8 +26,8 @@ const routes: Routes = [
   { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent},
   { path: 'FindPatients/:doctorId/:patientId/OpsRoom', component: OpsRoomComponent},
   { path: 'FindPatients/:doctorId/:patientId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent},
-  {path: 'patient', component: PatientComponent},
-  {path: 'patient-details/:id', component: PatientDetailsComponent}
+  { path: 'patient', component: PatientComponent },
+  { path: 'patient-details/:id', component: PatientDetailsComponent }
 ];
 
 
