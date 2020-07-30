@@ -91,8 +91,20 @@ export class TreatmentDetailsComponent implements OnInit {
         startTime: 'dummyData'
       } as TreatmentDetails
     )
-    .subscribe(data => console.log('TreatmentDetail successfully created'),
-    error => this.handleHTTPError(error));
+    .subscribe(data => 
+      { 
+        console.log('TreatmentDetail successfully created');
+        if(this.detailsForm.controls.opsRoomId.value != null) 
+        {
+          this.databaseOpsRoom.updateRoom(
+            {
+              opsRoomId: this.detailsForm.controls.opsRoomId.value,
+              available: false 
+            } as OpsRoom)
+            .subscribe(opsData => console.log("OpsRoom Successfully updated"),
+            error => this.handleHTTPError(error));
+        }
+      }, error => this.handleHTTPError(error));
   }
 
   private handleHTTPError(error: HttpErrorResponse): void {
