@@ -1,0 +1,33 @@
+<p>patient-details works!</p>
+<div *ngIf="patient" name="patient-info">
+    <h2>
+        {{patient.firstName | uppercase}} {{patient.lastName | uppercase}}
+
+    </h2>
+        <ul>
+            <li>
+                <label for="patientroomid">Patient Room Number</label>
+                <p id="patientroomid">{{patient.patientRoomId}}</p>
+            </li>
+            <li *ngIf="treatment">
+                
+                <div *ngIf="treatment" name="treatment-details"> Treatment Information
+                    <label for="treatment-name">Treatment Name</label>
+                    <p id="treatment-name">{{treatment.name}}</p>
+
+                    <label for="treatment-time">Treatment Time</label>
+                    <p id="treatment-time">{{treatment.timeToTreat}}</p>
+                </div>
+            </li>
+        </ul>
+
+
+        <span>
+            <button class="btn btn-danger" (click)="deletePatient()">Delete Patient</button>
+            <button class="btn btn-secondary" (click)="goBack()">Back To List</button>
+        </span>
+
+        
+
+</div>
+

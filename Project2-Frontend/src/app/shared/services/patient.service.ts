@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class PatientServiceService {
+export class PatientService {
 
   private readonly serviceUrl = environment.Url + '/api/Patients';
 
@@ -28,34 +28,34 @@ export class PatientServiceService {
   }
 
   // GET doctor by id
-  public getDoctor(id: number): Observable<Patient> {
+  public getPatient(id: number): Observable<Patient> {
     return this.http.get<Patient>(`${this.serviceUrl}/${id}`).pipe(
       map(data => new Patient().deserialize(data),
-      catchError(() => this.handleError<Patient>(`getDoctor id =${id}`))
+      catchError(() => this.handleError<Patient>(`getPatient id =${id}`))
     ));
   }
 
   // POST Doctor
-  public addDoctor(patient: Patient): Observable<Patient> {
+  public addPatient(patient: Patient): Observable<Patient> {
     return this.http.post<Patient>(`${this.serviceUrl}`, patient,
     this.httpOptions).pipe(
       map(data => new Patient().deserialize(data)),
-      catchError(this.handleError<Patient>('addDoctor'))
+      catchError(this.handleError<Patient>('addPatient'))
     );
   }
 
   // DELETE Doctor
-  public deleteDoctor(patient: Patient | number): Observable<Patient> {
+  public deletePatient(patient: Patient | number): Observable<Patient> {
     const id = typeof patient === 'number' ? patient : patient.patientId;
 
     return this.http.delete<Patient>(`${this.serviceUrl}/${id}`,
     this.httpOptions).pipe(
-      catchError(this.handleError<Patient>('deleteDoctor'))
+      catchError(this.handleError<Patient>('deletePatient'))
     );
   }
 
   // PUT Doctor
-  public updateDoctor(patient: Patient): Observable<any> {
+  public updatePatient(patient: Patient): Observable<any> {
     return this.http.put(`${this.serviceUrl}/${patient.patientId}`, patient,
      this.httpOptions).pipe(
       map(data => new Patient().deserialize(data)),
