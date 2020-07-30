@@ -10,6 +10,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
+import { PatientComponent } from './patient/patient.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { LoginComponent } from './login/login.component';
 
 
@@ -23,7 +25,9 @@ const routes: Routes = [
   { path: 'FindPatients/:doctorId/Treatments/:patientId', component: TreatmentComponent},
   { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent},
   { path: 'FindPatients/:doctorId/:patientId/OpsRoom', component: OpsRoomComponent},
-  { path: 'FindPatients/:doctorId/:patientId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent}
+  { path: 'FindPatients/:doctorId/:patientId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent},
+  {path: 'patient', component: PatientComponent},
+  {path: 'patient-details/:id', component: PatientDetailsComponent}
 ];
 
 
