@@ -21,12 +21,6 @@ export class DoctorComponent implements OnInit {
     lastName: ''
   };
 
-  selectedDoc: any = {
-    doctorId: 0,
-  //  firstName: '',
-  //  lastName: ''
-  };
-
 
   constructor(private databaseDoctor: DoctorService) { }
 
@@ -49,8 +43,8 @@ export class DoctorComponent implements OnInit {
     .subscribe(doctor => this.doctor = doctor);
   }
 
-  public deleteDoctor(): void {
-    this.databaseDoctor.deleteDoctor({ doctorId: this.selectedDoc} as Doctor)
+  public deleteDoctor(id: any): void {
+    this.databaseDoctor.deleteDoctor({ doctorId: parseInt(id, 10)} as Doctor)
     .subscribe();
   }
 }
