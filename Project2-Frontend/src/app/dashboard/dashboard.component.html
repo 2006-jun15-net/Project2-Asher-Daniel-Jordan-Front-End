@@ -1,7 +1,7 @@
-<div>(dashboard)</div>
 
-<div *ngIf="doc">
-    <button (click)="logout()">doctor logout</button>
+
+<div *ngIf="doc" class="grid grid-pad">
+    <button (click)="logout()" class="abc">doctor logout</button>
     <nav>
         <a routerLink="/details/{{doc}}">Doctor Profile</a>
     </nav>
@@ -9,20 +9,20 @@
         <a routerLink="/patient">Current Patients</a>
     </nav>
 </div>
-<div *ngIf="nur">
-    <button (click)="logout()">nurse logout</button>
+<div *ngIf="nur" class="grid grid-pad">
+    <button (click)="logout()" class="abc">nurse logout</button>
     <nav>
         <a routerLink="/patient">Current Patients</a>
     </nav>
 </div>
-<div *ngIf="pat">
-    <button (click)="logout()">patient logout</button>
+<div *ngIf="pat" class="grid grid-pad">
+    <button (click)="logout()" class="abc">patient logout</button>
     <nav>
         <a routerLink="/patient-details/{{pat}}">Patient Profile</a>
     </nav>
 </div>
-<div *ngIf="adm">
-    <button (click)="logout()">admin logout</button>
+<div *ngIf="adm" class="grid grid-pad">
+    <button (click)="logout()" class="abc">admin logout</button>
     <ul>
         <nav>
             <a routerLink="/FindPatients/2">Search Patients</a>

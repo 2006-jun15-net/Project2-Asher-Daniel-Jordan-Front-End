@@ -1,4 +1,5 @@
-<p>patient works!</p>
+<br>
+<p>Patient List</p>
 
 <div *ngIf="doc">
     <div *ngIf="!patients">
@@ -8,7 +9,7 @@
         <ul>
             <li *ngFor="let patient of patients">
                 <div *ngIf="patient.patientRoomId">
-                    <a routerLink="/patient-details/{{patient.patientId}}">
+                    <a routerLink="/treatment-details/{{patient.patientId}}">
                         {{patient.firstName}} {{patient.lastName}}
                     </a>
                 </div>

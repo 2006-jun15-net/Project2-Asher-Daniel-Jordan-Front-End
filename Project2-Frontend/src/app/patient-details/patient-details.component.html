@@ -1,11 +1,11 @@
-<p>patient-details works!</p>
+<p>Patient Profile</p>
 <div *ngIf="patient" name="patient-info">
     <h2>
         {{patient.firstName | uppercase}} {{patient.lastName | uppercase}}
 
     </h2>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+            <li>
                 <form>
                     <label for="patientroomid">Patient Room Number:</label>
                     <input type="number" [(ngModel)]="patient.patientRoomId" name="patient-room-id">
@@ -16,8 +16,8 @@
                 
 
             </li>
-            <li *ngIf="treatmentDetails" class="list-group-item">
-                <table class="table table-striped">
+            <li *ngIf="treatmentDetails">
+                <table>
                     <thead>
                     <tr>
                        <th>Treatment ID</th>

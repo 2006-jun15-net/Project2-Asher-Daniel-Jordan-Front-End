@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../shared/services/doctor.service';
 import {Doctor} from '../shared/models/doctor';
+import { delay } from 'rxjs/operators';
 
 
 
@@ -22,7 +23,9 @@ export class DoctorComponent implements OnInit {
   };
 
 
-  constructor(private databaseDoctor: DoctorService) { }
+  constructor(
+    private databaseDoctor: DoctorService,
+    ) { }
 
   ngOnInit(): void {
     this.getDoctors();
@@ -41,10 +44,12 @@ export class DoctorComponent implements OnInit {
   public addDoctor(): void {
     this.databaseDoctor.addDoctor({ firstName: this.doc.firstName, lastName: this.doc.lastName } as Doctor)
     .subscribe(doctor => this.doctor = doctor);
+    setTimeout(() => {this.getDoctors(); }, 1000);
   }
 
   public deleteDoctor(id: any): void {
     this.databaseDoctor.deleteDoctor({ doctorId: parseInt(id, 10)} as Doctor)
     .subscribe();
+    setTimeout(() => {this.getDoctors(); }, 1000);
   }
 }

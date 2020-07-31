@@ -1,6 +1,4 @@
-<div>(doctor)</div>
-
-
+<br>
 <div>
     <h4>{{ doc.firstName }} {{ doc.lastName }}</h4>
     <label>
@@ -16,7 +14,10 @@
 <br>
 <br>
 
-<button type="button" (click)="getDoctors()">Get all Doctors</button>
+<br>
+<div>Doctors List</div>
+
+
 
 
 <div *ngIf="error">
@@ -33,7 +34,7 @@
 <ul>
     <li *ngFor="let item of doctors">
         <a routerLink="/details/{{item.doctorId}}">
-        <span class="badge">
+        <span>
             {{item.doctorId}}
         </span>
         {{ item.getFullName() }}
@@ -41,5 +42,5 @@
         <button title="Delete Doctor" 
             (click)="deleteDoctor(item.doctorId)">x</button>
     </li>
-</ul>>
+</ul>
 
