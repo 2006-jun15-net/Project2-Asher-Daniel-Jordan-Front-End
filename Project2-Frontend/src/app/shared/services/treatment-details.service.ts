@@ -40,10 +40,10 @@ export class TreatmentDetailsService {
     );
   }
 
-  public getPatientTreatment(patientId: number): Observable<TreatmentDetails[]> {
-    return this.http.get<TreatmentDetails[]>(`${this.serviceUrl}/GetPatientsTreatment/${patientId}`)
+  public getPatientTreatment(patientId: number): Observable<TreatmentDetails> {
+    return this.http.get<TreatmentDetails>(`${this.serviceUrl}/GetPatientsTreatment/${patientId}`)
     .pipe(
-      map(data => data.map(data1 => new TreatmentDetails().deserialize(data1)))
+      map(data => new TreatmentDetails().deserialize(data))
     );
   }
 

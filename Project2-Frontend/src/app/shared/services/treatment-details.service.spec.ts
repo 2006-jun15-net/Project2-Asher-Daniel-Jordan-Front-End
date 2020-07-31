@@ -52,30 +52,30 @@ describe('TreatmentDetailsService', () => {
     request.flush(detail);
   });
 
-  // it('should get a patients treatment detail', () => {
-  //   const detail: any = {
-  //     treatmentDetailsId: 1,
-  //     treatmentId: 2,
-  //     patientId: 4,
-  //     opsRoomId: 10,
-  //     startTime: 'test'
-  //   };
-  //   service.getPatientTreatment(4).subscribe(td => {
-  //     // expect(td.patientId).toBe(4);
-  //     expect(td).toEqual(jasmine.objectContaining({
-  //       treatmentDetailsId: 1,
-  //       treatmentId: 2,
-  //       patientId: 4,
-  //       opsRoomId: 10,
-  //       startTime: 'test'
-  //     }));
-  //   });
+  it('should get a patients treatment detail', () => {
+    const detail: any = {
+      treatmentDetailsId: 1,
+      treatmentId: 2,
+      patientId: 4,
+      opsRoomId: 10,
+      startTime: 'test'
+    };
+    service.getPatientTreatment(4).subscribe(td => {
+      // expect(td.patientId).toBe(4);
+      expect(td).toEqual(jasmine.objectContaining({
+        treatmentDetailsId: 1,
+        treatmentId: 2,
+        patientId: 4,
+        opsRoomId: 10,
+        startTime: 'test'
+      }));
+    });
 
-  //   const request = httpMock.expectOne(`https://localhost:44362/api/TreatmentDetails/GetPatientsTreatment/4`);
-  //   expect(request.request.method).toBe('GET');
+    const request = httpMock.expectOne(`https://localhost:44362/api/TreatmentDetails/GetPatientsTreatment/4`);
+    expect(request.request.method).toBe('GET');
 
-  //   request.flush(detail);
-  // });
+    request.flush(detail);
+  });
 
   it('should create a new treatment detail', () => {
     const detail: any = {
