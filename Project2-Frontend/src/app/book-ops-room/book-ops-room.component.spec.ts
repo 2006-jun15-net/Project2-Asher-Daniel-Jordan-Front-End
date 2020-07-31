@@ -31,11 +31,11 @@ describe('BookOpsRoomComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 
-  it('should call service function updateRoom', () => {
-    // const mySpy = spyOn(databaseOpsRoom, 'updateRoom');
-  });
+  // it('should call service function updateRoom', () => {
+  //   // const mySpy = spyOn(databaseOpsRoom, 'updateRoom');
+  // });
 });
