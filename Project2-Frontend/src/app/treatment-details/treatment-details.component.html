@@ -1,0 +1,17 @@
+<div>
+   <form [formGroup]='detailsForm' (ngSubmit)="submit()">
+      <select formControlName="opsRoomId" (change)="changeOpsRoom($event)">
+         <option [value]="0" disabled>Select a Room</option>
+         <option [value]="null">None</option>
+         <option *ngFor="let item of opsRooms" [value]="item.opsRoomId">{{item.opsRoomId}}</option>
+      </select>
+      <select formControlName="treatmentId" (change)="changeTreatment($event)">
+         <option [value]="null" disabled>Select a Treatment</option>
+         <option *ngFor="let item of treatments" [value]='item.treatmentId'>{{item.name}}</option>
+      </select>
+      <div *ngIf="f.treatmentId.touched && f.treatmentId.invalid">
+         <div *ngIf="f.treatmentId.errors?.required">Treatment is required is required.</div>
+     </div>
+      <button type="submit" [disabled]="!detailsForm.valid">Submit</button>
+   </form>
+</div>

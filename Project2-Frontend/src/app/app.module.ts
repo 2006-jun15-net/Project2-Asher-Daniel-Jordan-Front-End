@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,9 +20,11 @@ import {NgbNavModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
+import { TreatmentDetailsComponent } from './treatment-details/treatment-details.component';
 import { PatientComponent } from './patient/patient.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { LoginComponent } from './login/login.component';
+
 
 
 @NgModule({
@@ -36,10 +38,11 @@ import { LoginComponent } from './login/login.component';
     OpsRoomComponent,
     BookOpsRoomComponent,
     DashboardComponent,
+    AssignPatientComponent,
     DoctorDetailsComponent,
+    TreatmentDetailsComponent
     PatientComponent,
     PatientDetailsComponent,
-    DoctorDetailsComponent,
     LoginComponent
   ],
   imports: [
@@ -52,6 +55,7 @@ import { LoginComponent } from './login/login.component';
     MatSnackBarModule,
     NgbNavModule,
     NgbModule,
+    ReactiveFormsModule
   ],
   providers: [DoctorService, TreatmentService],
   bootstrap: [AppComponent]

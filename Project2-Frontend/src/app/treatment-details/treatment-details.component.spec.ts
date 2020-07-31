@@ -3,25 +3,25 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { TreatmentConfirmationComponent } from './treatment-confirmation.component';
+import { TreatmentDetailsComponent } from './treatment-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-describe('TreatmentConfirmationComponent', () => {
-  let component: TreatmentConfirmationComponent;
-  let fixture: ComponentFixture<TreatmentConfirmationComponent>;
+describe('TreatmentDetailsComponent', () => {
+  let component: TreatmentDetailsComponent;
+  let fixture: ComponentFixture<TreatmentDetailsComponent>;
 
   beforeEach(async(() => {
     const matSnackBar = jasmine.createSpyObj('MatSnackBar', ['open']);
     TestBed.configureTestingModule({
-      declarations: [ TreatmentConfirmationComponent ],
-      imports: [HttpClientTestingModule, RouterTestingModule],
-      providers: [{ provide: MatSnackBar, useValue: matSnackBar }, FormsModule, ReactiveFormsModule]
+      declarations: [ TreatmentDetailsComponent ],
+      imports: [HttpClientTestingModule, RouterTestingModule, FormsModule, ReactiveFormsModule],
+      providers: [{ provide: MatSnackBar, useValue: matSnackBar }]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TreatmentConfirmationComponent);
+    fixture = TestBed.createComponent(TreatmentDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
