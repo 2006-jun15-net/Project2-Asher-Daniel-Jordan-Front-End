@@ -23,7 +23,6 @@ describe('TreatmentDetailsService', () => {
 
   afterEach(() => {
     httpMock.verify();
-    //TestBed.resetTestingModule();
   });
 
   it('should get a treatmentDetail', () => {
