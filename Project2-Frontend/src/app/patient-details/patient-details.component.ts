@@ -53,7 +53,7 @@ export class PatientDetailsComponent implements OnInit {
     const id = parseInt(this.id2, 10);
     this.pService.assignPatientToRoom(id)
       .subscribe(patient => this.patient = patient);
-
+    setTimeout(() => {this.getPatient(); }, 1000);
   }
 
 

@@ -16,11 +16,11 @@ h1 {
     border-radius: 4px;
   }
   nav a:visited, a:link {
-    color: #334953;
+    color: #534233;
   }
   nav a:hover {
     color: #039be5;
-    background-color: #cfd8dc;
+    background-color: #dccfcf;
   }
   nav a.active {
     color: #039be5;

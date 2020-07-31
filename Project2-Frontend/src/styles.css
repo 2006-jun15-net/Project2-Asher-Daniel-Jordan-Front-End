@@ -54,7 +54,7 @@ h1 {
     cursor: hand;
   }
   button:hover {
-    background-color: #cfd8dc;
+    background-color: #dcd2cf;
   }
   button:disabled {
     background-color: #eee;
@@ -73,7 +73,7 @@ h1 {
     border-radius: 4px;
   }
   nav a:visited, a:link {
-    color: #607D8B;
+    color: #8b6060;
   }
   nav a:hover {
     color: #039be5;

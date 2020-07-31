@@ -17,7 +17,7 @@
          </div>
       </ng-template>
    </li>
-   <li [ngbNavItem]="2">
+   <!-- <li [ngbNavItem]="2">
       <a ngbNavLink>Find By Doctor</a>
       <ng-template ngbNavContent>
          Content2
@@ -28,7 +28,7 @@
       <ng-template ngbNavContent>
          Content3
       </ng-template>
-   </li>
+   </li> -->
 </ul>
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
@@ -36,10 +36,7 @@
    {{patient.getFullName()}}, Room Number: {{roomId}}   
 </div>
 <div *ngIf="patient">
-   <a routerLink="Treatments/{{patient.patientId}}">
-      Select Treatment
-   </a> | 
-   <a routerLink="{{patient.patientId}}/OpsRoom">
-      Book OR Room
+   <a routerLink="/patient-details/{{patient.patientId}}">
+      Patient Details
    </a>
 </div>
