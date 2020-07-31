@@ -16,7 +16,7 @@ import {Treatment} from '../shared/models/treatment';
 export class PatientDetailsComponent implements OnInit {
 
   @Input() patient: any;
-  public treatmentDetails: TreatmentDetails | null = null;
+  public treatmentDetails: TreatmentDetails[] | null = null;
 
 
   id2: string;
