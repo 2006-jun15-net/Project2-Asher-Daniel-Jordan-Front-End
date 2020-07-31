@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DoctorService } from './shared/services/doctor.service';
@@ -14,9 +13,8 @@ import { FindPatientComponent } from './findPatient/findPatient.component';
 import { TreatmentConfirmationComponent } from './treatment-confirmation/treatment-confirmation.component';
 import { OpsRoomComponent } from './ops-room/ops-room.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {NgbNavModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgbNavModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookOpsRoomComponent } from './book-ops-room/book-ops-room.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
@@ -38,9 +36,8 @@ import { LoginComponent } from './login/login.component';
     OpsRoomComponent,
     BookOpsRoomComponent,
     DashboardComponent,
-    AssignPatientComponent,
     DoctorDetailsComponent,
-    TreatmentDetailsComponent
+    TreatmentDetailsComponent,
     PatientComponent,
     PatientDetailsComponent,
     LoginComponent
