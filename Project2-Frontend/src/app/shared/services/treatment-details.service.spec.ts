@@ -60,7 +60,7 @@ describe('TreatmentDetailsService', () => {
       startTime: 'test'
     };
     service.getPatientTreatment(4).subscribe(td => {
-      //expect(td.patientId).toBe(4);
+      // expect(td.patientId).toBe(4);
       expect(td).toEqual(jasmine.objectContaining({
         treatmentDetailsId: 1,
         treatmentId: 2,
