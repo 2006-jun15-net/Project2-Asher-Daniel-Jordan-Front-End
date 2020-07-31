@@ -8,15 +8,20 @@ describe('TreatmentComponent', () => {
   let component: TreatmentComponent;
   let fixture: ComponentFixture<TreatmentComponent>;
 
-  beforeEach(async(() => {
+  // beforeEach(async(() => {
+  //   TestBed.configureTestingModule({
+  //     declarations: [ TreatmentComponent ],
+  //     imports: [HttpClientTestingModule, RouterTestingModule]
+  //   })
+  //   .compileComponents();
+  // }));
+
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ TreatmentComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
     .compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(TreatmentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

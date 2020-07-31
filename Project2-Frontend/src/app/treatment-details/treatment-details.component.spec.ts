@@ -10,7 +10,17 @@ describe('TreatmentDetailsComponent', () => {
   let component: TreatmentDetailsComponent;
   let fixture: ComponentFixture<TreatmentDetailsComponent>;
 
-  beforeEach(async(() => {
+  // beforeEach(async(() => {
+  //   const matSnackBar = jasmine.createSpyObj('MatSnackBar', ['open']);
+  //   TestBed.configureTestingModule({
+  //     declarations: [ TreatmentDetailsComponent ],
+  //     imports: [HttpClientTestingModule, RouterTestingModule, FormsModule, ReactiveFormsModule],
+  //     providers: [{ provide: MatSnackBar, useValue: matSnackBar }]
+  //   })
+  //   .compileComponents();
+  // }));
+
+  beforeEach(() => {
     const matSnackBar = jasmine.createSpyObj('MatSnackBar', ['open']);
     TestBed.configureTestingModule({
       declarations: [ TreatmentDetailsComponent ],
@@ -18,9 +28,6 @@ describe('TreatmentDetailsComponent', () => {
       providers: [{ provide: MatSnackBar, useValue: matSnackBar }]
     })
     .compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(TreatmentDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

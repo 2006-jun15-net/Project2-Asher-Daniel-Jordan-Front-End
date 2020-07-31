@@ -7,15 +7,20 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
-  beforeEach(async(() => {
+  // beforeEach(async(() => {
+  //   TestBed.configureTestingModule({
+  //     declarations: [ LoginComponent ],
+  //     imports: [RouterTestingModule]
+  //   })
+  //   .compileComponents();
+  // }));
+
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

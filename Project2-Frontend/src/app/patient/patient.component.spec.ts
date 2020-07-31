@@ -7,15 +7,20 @@ describe('PatientComponent', () => {
   let component: PatientComponent;
   let fixture: ComponentFixture<PatientComponent>;
 
-  beforeEach(async(() => {
+  // beforeEach(async(() => {
+  //   TestBed.configureTestingModule({
+  //     declarations: [ PatientComponent ],
+  //     imports: [HttpClientTestingModule]
+  //   })
+  //   .compileComponents();
+  // }));
+
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ PatientComponent ],
       imports: [HttpClientTestingModule]
     })
     .compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(PatientComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

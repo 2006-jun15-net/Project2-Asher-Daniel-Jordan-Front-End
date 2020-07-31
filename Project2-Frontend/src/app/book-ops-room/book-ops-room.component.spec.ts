@@ -13,7 +13,19 @@ describe('BookOpsRoomComponent', () => {
   let component: BookOpsRoomComponent;
   let fixture: ComponentFixture<BookOpsRoomComponent>;
 
-  beforeEach(async(() => {
+  // beforeEach(async(() => {
+  //   const matSnackBar = jasmine.createSpyObj('MatSnackBar', ['open']);
+
+  //   TestBed.configureTestingModule({
+  //     declarations: [ BookOpsRoomComponent ],
+  //     imports: [HttpClientTestingModule, RouterTestingModule],
+  //     providers: [{ provide: MatSnackBar, useValue: matSnackBar }
+  //     ]
+  //   })
+  //   .compileComponents();
+  // }));
+
+  beforeEach(() => {
     const matSnackBar = jasmine.createSpyObj('MatSnackBar', ['open']);
 
     TestBed.configureTestingModule({
@@ -23,9 +35,6 @@ describe('BookOpsRoomComponent', () => {
       ]
     })
     .compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(BookOpsRoomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
