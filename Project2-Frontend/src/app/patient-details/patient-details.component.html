@@ -6,7 +6,12 @@
     </h2>
         <ul class="list-group list-group-flush">
             <li>
-                <form>
+                <div *ngIf="pat">
+                    <label for="patientroomid">Patient Room Number:</label>
+                    <h4>{{patient.patientRoomId}}</h4>
+                </div>
+                
+                <form *ngIf="!pat">
                     <label for="patientroomid">Patient Room Number:</label>
                     <input type="number" [(ngModel)]="patient.patientRoomId" name="patient-room-id">
                     <div *ngIf="patient.patientRoomId == null">
