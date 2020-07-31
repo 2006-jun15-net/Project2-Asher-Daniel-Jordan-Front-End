@@ -29,7 +29,7 @@ export class TreatmentDetailsService {
   public createTreatmentDetail(treatmentDetails: TreatmentDetails): Observable<TreatmentDetails> {
     return this.http.post<TreatmentDetails>(`${this.serviceUrl}`, treatmentDetails)
     .pipe(
-      map(data => new TreatmentDetails().deserialize(data))
+      map(data2 => new TreatmentDetails().deserialize(data2))
     );
   }
 
@@ -40,11 +40,18 @@ export class TreatmentDetailsService {
     );
   }
 
-  public getPatientTreatment(patientId: number): Observable<TreatmentDetails> {
-    return this.http.get<TreatmentDetails>(`${this.serviceUrl}/GetPatientsTreatment/${patientId}`)
+  public getPatientTreatment(patientId: number): Observable<TreatmentDetails[]> {
+    return this.http.get<TreatmentDetails[]>(`${this.serviceUrl}/GetPatientsTreatment/${patientId}`)
     .pipe(
-      map(data => new TreatmentDetails().deserialize(data))
+      map(data => data.map(data1 => new TreatmentDetails().deserialize(data1)))
     );
+  }
+
+  public getSinglePatientTreatment(patientId: number): Observable<TreatmentDetails> {
+    return this.http.get<TreatmentDetails>(`${this.serviceUrl}/GetSinglePatientsTreatment/${patientId}`)
+    .pipe(
+      map(data2 => new TreatmentDetails().deserialize(data2))
+      );
   }
 
   public updateTreatmentDetail(treatmentDetail: TreatmentDetails): Observable<TreatmentDetails> {

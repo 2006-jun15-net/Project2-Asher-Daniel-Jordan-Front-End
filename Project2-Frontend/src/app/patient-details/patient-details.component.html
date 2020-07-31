@@ -1,0 +1,49 @@
+<p>patient-details works!</p>
+<div *ngIf="patient" name="patient-info">
+    <h2>
+        {{patient.firstName | uppercase}} {{patient.lastName | uppercase}}
+
+    </h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <form>
+                    <label for="patientroomid">Patient Room Number:</label>
+                    <input type="number" [(ngModel)]="patient.patientRoomId" name="patient-room-id">
+                    <div *ngIf="patient.patientRoomId == null">
+                        <button class="btn btn-primary" (click)="assignPatient()">Assign Patient To Room</button>
+                    </div>
+                </form>
+                
+
+            </li>
+            <li *ngIf="treatmentDetails" class="list-group-item">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                       <th>Treatment ID</th>
+                       <th>Operation Room ID</th>
+                       <th>Start Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let td of treatmentDetails">
+                            <td>{{td.treatmentId}}</td>
+                            <td>{{td.opsRoomId}}</td>
+                            <td>{{td.startTime}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ul>
+
+    <div *ngIf="!pat">
+        <span>
+            <button class="btn btn-danger" (click)="deletePatient()">Delete Patient</button>
+            <button class="btn btn-secondary" (click)="goBack()">Back To List</button>
+        </span>
+    </div>
+        
+        
+
+</div>
+
