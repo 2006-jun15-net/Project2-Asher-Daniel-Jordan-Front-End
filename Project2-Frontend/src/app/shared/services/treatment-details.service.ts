@@ -48,7 +48,7 @@ export class TreatmentDetailsService {
   }
 
   public getSinglePatientTreatment(patientId: number): Observable<TreatmentDetails> {
-    return this.http.get<TreatmentDetails>(`${this.serviceUrl}/GetPatientsTreatment/${patientId}`)
+    return this.http.get<TreatmentDetails>(`${this.serviceUrl}/GetSinglePatientsTreatment/${patientId}`)
     .pipe(
       map(data2 => new TreatmentDetails().deserialize(data2))
       );
