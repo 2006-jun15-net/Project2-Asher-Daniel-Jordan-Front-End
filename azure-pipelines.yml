@@ -35,6 +35,7 @@ steps:
       --code-coverage
     displayName: ng test
     workingDirectory: $(workingDir)
+    failOnStderr: false
 
 # requires some extra work iirc
   - script: npx ng e2e
