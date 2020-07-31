@@ -27,7 +27,7 @@ export class PatientService {
     );
   }
 
-  // GET doctor by id
+  // GET patient by id
   public getPatient(id: number): Observable<Patient> {
     return this.http.get<Patient>(`${this.serviceUrl}/${id}`).pipe(
       map(data => new Patient().deserialize(data),
@@ -35,7 +35,7 @@ export class PatientService {
     ));
   }
 
-  // POST Doctor
+  // POST Patient
   public addPatient(patient: Patient): Observable<Patient> {
     return this.http.post<Patient>(`${this.serviceUrl}`, patient,
     this.httpOptions).pipe(
@@ -44,7 +44,7 @@ export class PatientService {
     );
   }
 
-  // DELETE Doctor
+  // DELETE Patient
   public deletePatient(patient: Patient | number): Observable<Patient> {
     const id = typeof patient === 'number' ? patient : patient.patientId;
 
@@ -54,13 +54,23 @@ export class PatientService {
     );
   }
 
-  // PUT Doctor
+  // PUT Patient
   public updatePatient(patient: Patient): Observable<any> {
     return this.http.put(`${this.serviceUrl}/${patient.patientId}`, patient,
      this.httpOptions).pipe(
       map(data => new Patient().deserialize(data)),
-      catchError(this.handleError<any>('updateDoctor'))
+      catchError(this.handleError<any>('updatePatient'))
      );
+  }
+
+  public assignPatientToRoom(patient: Patient | number): Observable<any> {
+    const id = typeof patient === 'number' ? patient : patient.patientId;
+
+    return this.http.put(`${this.serviceUrl}/AssignPatient/${id}`, patient,
+    this.httpOptions).pipe(
+      map(data => new Patient().deserialize(data)),
+      catchError(this.handleError<any>('updatePatient'))
+    );
   }
 
 
