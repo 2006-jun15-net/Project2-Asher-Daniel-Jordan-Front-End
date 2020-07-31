@@ -2,15 +2,15 @@
 <div>
     <h4>{{ doc.firstName }} {{ doc.lastName }}</h4>
     <label>
-        Doctor's first name: 
+        <h2>Doctor's first name: </h2>
         <input [(ngModel)]="doc.firstName" placeholder="First Name"/>
     </label>
     <label>
-        Doctor's last name: 
+        <h2>Doctor's last name:</h2> 
         <input [(ngModel)]="doc.lastName" placeholder="Last Name"/>
     </label>
 </div>
-<button type="button" (click)="addDoctor()">Add Doctor</button>
+<button class="btn btn-primary" (click)="addDoctor()">Add Doctor</button>
 <br>
 <br>
 
@@ -33,14 +33,16 @@
 </div>
 <ul>
     <li *ngFor="let item of doctors">
-        <a routerLink="/details/{{item.doctorId}}">
         <span>
+        <a routerLink="/details/{{item.doctorId}}">
+        
             {{item.doctorId}}
-        </span>
-        {{ item.getFullName() }}
+        
+       {{ item.getFullName() }}
         </a>
-        <button title="Delete Doctor" 
+        <button class = "btn btn-secondary btn-sm" title="Delete Doctor" 
             (click)="deleteDoctor(item.doctorId)">x</button>
+        </span>
     </li>
 </ul>
 

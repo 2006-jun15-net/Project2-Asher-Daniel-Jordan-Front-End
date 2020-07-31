@@ -59,7 +59,7 @@ export class PatientDetailsComponent implements OnInit {
 
   deletePatient(): void{
     const id = parseInt(this.id2, 10);
-    this.pService.deletePatient(id);
+    this.pService.deletePatient({patientId: id} as Patient);
     this.goBack();
   }
 

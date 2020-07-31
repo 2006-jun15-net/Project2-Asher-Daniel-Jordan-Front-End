@@ -1,15 +1,15 @@
 <br>
-<p>Patient List</p>
+<h1>Patient List</h1>
 
 <div *ngIf="doc">
-    <div *ngIf="!patients">
-        Loading Patients...
+    <div class="spinner spinner-borser" role="status" *ngIf="!patients">
+       <span>Loading Patients...</span> 
     </div>
     <div *ngIf="patients">
         <ul>
             <li *ngFor="let patient of patients">
                 <div *ngIf="patient.patientRoomId">
-                    <a routerLink="/treatment-details/{{patient.patientId}}">
+                    <a class="btn btn-secondary" routerLink="/treatment-details/{{patient.patientId}}">
                         {{patient.firstName}} {{patient.lastName}}
                     </a>
                 </div>
@@ -19,17 +19,17 @@
 </div>
 
 <div *ngIf="!doc">
-    <div *ngIf="!patients">
+    <div class="spinner spinner-borser" role="status" *ngIf="!patients">
         Loading Patients...
     </div>
     <div *ngIf="patients">
         <ul>
             <li *ngFor="let patient of patients">
-                <a routerLink="/patient-details/{{patient.patientId}}">
+                <a class="btn btn-secondary" routerLink="/patient-details/{{patient.patientId}}">
                 {{patient.firstName}} {{patient.lastName}}
                 </a>
-                <span *ngIf="patient.patientRoomId">(Assigned)</span>
-                <span *ngIf="!patient.patientRoomId">(Unassigned)</span>
+                <span class="text" *ngIf="patient.patientRoomId"><h4>(Assigned)</h4></span>
+                <span class="text" *ngIf="!patient.patientRoomId"><h4>(Unassigned)</h4></span>
             </li>
     
         </ul>
