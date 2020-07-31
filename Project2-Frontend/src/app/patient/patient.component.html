@@ -21,8 +21,10 @@
             <a routerLink="/patient-details/{{patient.patientId}}">
             {{patient.firstName}} {{patient.lastName}}
             </a>
+            
             <span *ngIf="patient.patientRoomId">(Assigned)</span>
             <span *ngIf="!patient.patientRoomId">(Unassigned)</span>
+        
         </li>
 
     </ul>

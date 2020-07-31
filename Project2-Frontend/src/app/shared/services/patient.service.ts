@@ -63,7 +63,7 @@ export class PatientService {
      );
   }
 
-  public assignPatientToRoom(patient: Patient | number): Observable<any> {
+  public assignPatientToRoom(patient: Patient | number): Observable<Patient> {
     const id = typeof patient === 'number' ? patient : patient.patientId;
 
     return this.http.put(`${this.serviceUrl}/AssignPatient/${id}`, patient,
