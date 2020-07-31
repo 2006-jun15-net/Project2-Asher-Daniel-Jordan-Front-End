@@ -1,8 +1,12 @@
-<div *ngIf='treatment'>
-   {{treatment.name}}
-   <br>
-   Takes {{treatment.timeToTreat}} Days to complete Treatment
-</div>
 
-<button type="button" (click)="goBack()">Go Back</button>
-<button type="button" (click)="confirmTreatment()">Confirm</button>
+
+
+   <div *ngIf='treatment'>
+      {{treatment.name}}
+      <br>
+      Takes {{treatment.timeToTreat}} Days to complete Treatment
+   </div>
+   
+   <button type="button" (click)="goBack()">Go Back</button>
+   <button type="button" (click)="confirmTreatment()">Confirm</button>   
+

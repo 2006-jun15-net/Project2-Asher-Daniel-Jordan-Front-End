@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
     }
     if ( this.access === 'nurse'){
       localStorage.setItem('nurse', `${this.userId}`);
+      this.Route.navigate(['/patient']);
     }
     if ( this.access === 'admin'){
       localStorage.setItem('admin', `${this.userId}`);
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit {
       this.Route.navigate([`/details/${this.doc}`]);
     }
     if (this.nur != null ){
-
+      this.Route.navigate(['/patient']);
     }
     if (this.pat != null ){
       this.Route.navigate([`/patient-details/${this.pat}`]);
