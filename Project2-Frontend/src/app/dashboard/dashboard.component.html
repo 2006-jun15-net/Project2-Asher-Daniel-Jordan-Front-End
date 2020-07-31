@@ -1,37 +1,37 @@
 
 
 <div *ngIf="doc" class="grid grid-pad">
-    <button (click)="logout()" class="abc">doctor logout</button>
+    <button (click)="logout()" class="abc btn btn-lg">doctor logout</button>
     <nav>
-        <a routerLink="/details/{{doc}}">Doctor Profile</a>
+        <a class="btn btn-lg d-flex justify-content-center" routerLink="/details/{{doc}}">Doctor Profile</a>
     </nav>
     <nav>
-        <a routerLink="/patient">Current Patients</a>
+        <a class="btn btn-lg d-flex justify-content-center" routerLink="/patient">Current Patients</a>
     </nav>
 </div>
 <div *ngIf="nur" class="grid grid-pad">
-    <button (click)="logout()" class="abc">nurse logout</button>
+    <button (click)="logout()" class="abc btn btn-lg d-flex justify-content-center">nurse logout</button>
     <nav>
-        <a routerLink="/patient">Current Patients</a>
+        <a class="btn btn-lg d-flex justify-content-center" routerLink="/patient">Current Patients</a>
     </nav>
 </div>
 <div *ngIf="pat" class="grid grid-pad">
-    <button (click)="logout()" class="abc">patient logout</button>
+    <button (click)="logout()" class="abc btn btn-lg d-flex justify-content-center">patient logout</button>
     <nav>
         <a routerLink="/patient-details/{{pat}}">Patient Profile</a>
     </nav>
 </div>
 <div *ngIf="adm" class="grid grid-pad">
-    <button (click)="logout()" class="abc">admin logout</button>
+    <button (click)="logout()" class="abc btn btn-lg d-flex justify-content-center">admin logout</button>
     <ul>
         <nav>
-            <a routerLink="/FindPatients/2">Search Patients</a>
+            <a routerLink="/FindPatients/2" class="btn btn-lg d-flex justify-content-center">Search Patients</a>
         </nav>
         <nav>
-            <a routerLink="/doctor">Doctors</a>
+            <a routerLink="/doctor" class="btn btn-lg d-flex justify-content-center">Doctors</a>
         </nav>
         <nav>
-            <a routerLink="/patient">Patients List</a>
+            <a routerLink="/patient" class="btn btn-lg d-flex justify-content-center">Patients List</a>
         </nav>
     </ul>
 </div>

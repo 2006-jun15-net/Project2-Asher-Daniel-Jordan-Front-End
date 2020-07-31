@@ -3,17 +3,17 @@
     <h2>{{doctor.firstName | uppercase}} {{doctor.lastName | uppercase}} Details</h2>
     <div><span>id: </span>{{doctor.doctorId}}</div>
     <div>
-      <label>first name:
+      <label><h2>first name:</h2>
         <input [(ngModel)]="doctor.firstName" placeholder="first name"/>
       </label>
     </div>
     <div>
-        <label>last name:
+        <label><h2>last name:</h2>
           <input [(ngModel)]="doctor.lastName" placeholder="last name"/>
         </label>
       </div>
-    <button (click)="goBack()">go back</button>
-    <button (click)="editDoctor()">save</button>
+    <button class="btn btn-primary" (click)="goBack()">go back</button>
+    <button class ="btn btn-secondary" (click)="editDoctor()">save</button>
 </div>
 <br>
 <br>
@@ -26,7 +26,7 @@
  </div>
  <ul>
     <li *ngFor="let item of treatments">
-        id:{{ item.treatmentId }} {{ item.name }}
+       <h2> id:{{ item.treatmentId }} {{ item.name }}</h2>
     </li>
  </ul>
  <br>
@@ -40,6 +40,6 @@
  </div>
  <ul>
     <li *ngFor="let item of treatmentDetails">
-        {{ item.treatmentDetailsId }} {{ item.treatmentId }} {{ item.patientId }} {{ item.opsRoomId }} {{ item.startTime}}
+        <h2>{{ item.treatmentDetailsId }} {{ item.treatmentId }} {{ item.patientId }} {{ item.opsRoomId }} {{ item.startTime}}</h2>
     </li>
  </ul>
