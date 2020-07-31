@@ -50,6 +50,10 @@ export class LoginComponent implements OnInit {
 
   }
 
+  public addPatient(): void{
+    this.Route.navigate(['/register']);
+  }
+
   public pageLoad(): void {
     if (this.doc != null ){
       this.Route.navigate([`/details/${this.doc}`]);

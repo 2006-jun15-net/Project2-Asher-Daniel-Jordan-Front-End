@@ -10,12 +10,14 @@
         </label>
         <label>
             User ID: 
-            <input [(ngModel)]="userId" placeholder="User ID"/>
+            <input [(ngModel)]="userId" type="number" placeholder="User ID" />
         </label>
     </div>
-    <button title="Login" 
-                (click)="login()">Login</button>
-    <br>
+    <span>
+        <button title="Login" (click)="login()">Login</button>
+        <button title="Register" (click)="addPatient()">Register as new Patient</button>
+    </span>
+    
 </div>
 
 <div *ngIf="adm">

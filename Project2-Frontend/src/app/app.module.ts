@@ -22,6 +22,7 @@ import { TreatmentDetailsComponent } from './treatment-details/treatment-details
 import { PatientComponent } from './patient/patient.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -40,7 +41,8 @@ import { LoginComponent } from './login/login.component';
     TreatmentDetailsComponent,
     PatientComponent,
     PatientDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

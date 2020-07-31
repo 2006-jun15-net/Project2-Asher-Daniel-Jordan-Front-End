@@ -14,20 +14,22 @@ import { PatientComponent } from './patient/patient.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { LoginComponent } from './login/login.component';
 import { TreatmentDetailsComponent } from './treatment-details/treatment-details.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'treatment-details/:id', component: TreatmentDetailsComponent },
-  { path: 'details/:id', component: DoctorDetailsComponent},
-  { path: 'doctor', component: DoctorComponent},
-  { path: 'FindPatients/:doctorId', component: FindPatientComponent},
-  { path: 'FindPatients/:doctorId/Treatments/:patientId', component: TreatmentComponent},
-  { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent},
-  { path: 'FindPatients/:doctorId/:patientId/OpsRoom', component: OpsRoomComponent},
-  { path: 'FindPatients/:doctorId/:patientId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent},
+  { path: 'details/:id', component: DoctorDetailsComponent },
+  { path: 'doctor', component: DoctorComponent },
+  { path: 'FindPatients/:doctorId', component: FindPatientComponent },
+  { path: 'FindPatients/:doctorId/Treatments/:patientId', component: TreatmentComponent },
+  { path: 'TreatmentConfirm/:treatmentId/:patientId', component: TreatmentConfirmationComponent },
+  { path: 'FindPatients/:doctorId/:patientId/OpsRoom', component: OpsRoomComponent },
+  { path: 'FindPatients/:doctorId/:patientId/OpsRoom/BookOpsRoom/:opsRoomId', component: BookOpsRoomComponent },
   { path: 'patient', component: PatientComponent },
   { path: 'patient-details/:id', component: PatientDetailsComponent }
 ];

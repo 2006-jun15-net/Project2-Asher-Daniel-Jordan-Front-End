@@ -1,0 +1,17 @@
+<br>
+<h3>Register as new Patient</h3>
+<br>
+<div>
+    <h4>{{ patientZero.firstName }} {{ patientZero.lastName }}</h4>
+    <label>
+        Patient's first name: 
+        <input [(ngModel)]="patientZero.firstName" placeholder="First Name"/>
+    </label>
+    <label>
+        Patient's last name: 
+        <input [(ngModel)]="patientZero.lastName" placeholder="Last Name"/>
+    </label>
+</div>
+<button type="button" (click)="addPatient()">Register</button>
+<br>
+<br>
